@@ -1,19 +1,19 @@
 \chapter{Evaluace zpětné vazby od ostatních studentů VŠE}
 
-Pro sběr zpětné vazby od ostatních studentů Vysoké školy ekonomické v Praze pro následnou evaluaci byla zvolena metoda dotazníkového šetření. Cílem dotazníku je lépe pochopit potřeby uživatelů webového rozšíření a zodpovědět stanovené hypotézy.
+Pro sběr zpětné vazby od ostatních studentů Vysoké školy ekonomické v~Praze pro následnou evaluaci byla zvolena metoda dotazníkového šetření. Cílem dotazníku je lépe pochopit potřeby uživatelů webového rozšíření a zodpovědět stanovené hypotézy.
 
 Byly stanoveny celkem 3 otázky, na které se dotazníkové šetření snaží odpovědět:
 
 \begin{itemize}
-    \item Jak se uživatelé o rozšíření dozvěděli?
-    \item Jaké z přidaných funkcionalit uživatelé využívají?
+    \item Jak se uživatelé o~rozšíření dozvěděli?
+    \item Jaké z~přidaných funkcionalit uživatelé využívají?
     \item Jak by se daly tyto funkcionality vylepšit a nebo rozšířit?
 \end{itemize}
 
 Dále byly stanoveny následující hypotézy, které chci za pomocí dotazníkového šetření otestovat:
 
 \begin{itemize}
-    \item Většina uživatelů rozšíření VŠE+ využívá verzi s přihlášením.
+    \item Většina uživatelů rozšíření VŠE+ využívá verzi s~přihlášením.
     \item Všichni uživatelé rozšíření VŠE+ využívají alespoň polovinu přidaných funkcionalit.
 \end{itemize}
 
@@ -21,7 +21,7 @@ Dále byly stanoveny následující hypotézy, které chci za pomocí dotazníko
 
 Dotazník byl vytvořen prostřednictvím platformy Google Forms, která umožňuje jednoduchou editaci a zároveň poskytuje pokročilé nástroje, jako větvení průchodu dotazníkem podle odpovědí respondenta. To je užitečné například pro zobrazení odlišných otázek respondentům, kteří rozšíření nepoužívají, aby byla zpětná vazba co nejrelevantnější. Nedávalo by smysl se respondentů, kteří rozšíření nepoužívají ptát na dílčí funkcionality nebo se naopak dotazovat uživatelů, kteří rozšíření mají nainstalované, jaké jsou jejich primární důvody proč rozšíření nepoužívají. 
 
-Celý dotazník je členěn do 8 sekcí, které se respondentům zobrazují v závislosti na předchozích odpovědích. Každá tato část obsahuje 1-20 otázek, které jsou buď výběr 1 nebo více možností z předem stanoveného výběru nebo otevřené odpovědi s doplněním vlastního textu. Schéma průchodu dotazníkem zobrazuje obrázek \ref{fig:dotaznik}.
+Celý dotazník je členěn do 8 sekcí, které se respondentům zobrazují v~závislosti na předchozích odpovědích. Každá tato část obsahuje 1-20 otázek, které jsou buď výběr 1 nebo více možností z~předem stanoveného výběru nebo otevřené odpovědi s~doplněním vlastního textu. Schéma průchodu dotazníkem zobrazuje obrázek \ref{fig:dotaznik}.
 
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/dotaznik.png}
@@ -31,14 +31,14 @@ Celý dotazník je členěn do 8 sekcí, které se respondentům zobrazují v z�
 \imagesource{
 @startuml
 start
-:Úvod k dotazníku;
+:Úvod k~dotazníku;
 
 :Rozdělení na studenty VŠE;
 
 if (Respondent je studentem VŠE) then (ano)
   :Demografické údaje;
   :Rozdělení na uživatele VŠE+;
-  switch (Respondent o rozšíření) 
+  switch (Respondent o~rozšíření) 
   case ( slyšel a používá ho) 
     :Blok otázek pro uživatele rozšíření;
     if (Respondent zaškrtnul, že chce odpovídat na detailní otázky) then (ano)
@@ -46,9 +46,9 @@ if (Respondent je studentem VŠE) then (ano)
     else (ne)
     endif
   case (     slyšel a nepoužívá ho)
-    :Blok otázek pro respondenty, kteří o rozšíření slyšeli, ale nepoužívají ho;
+    :Blok otázek pro respondenty, kteří o~rozšíření slyšeli, ale nepoužívají ho;
   case (   neslyšel)
-    :Blok otázek pro respondenty, kteří o rozšíření neslyšeli;
+    :Blok otázek pro respondenty, kteří o~rozšíření neslyšeli;
   endswitch
 else (ne)
 endif
@@ -60,13 +60,13 @@ end
 
 \section{Představení dat}
 
-Celkem bylo v dotazníkovém šetření nasbíráno od respondentů 85 odpovědí. Z tohoto celku je 74 odpovědí od respondentů, kteří jsou v současné době studenty Vysoké školy ekonomické v Praze a o rozšíření VŠE+ slyšeli. Z těchto 74 odpovědí pak 42 respondentů chtělo odpovídat na doplňující otázky ke každé z implementovaných funkcionalit. Vzhledem k počtu instalací webového rozšíření se jedná o poměrně rozsáhlý vzorek uživatelů. 
+Celkem bylo v~dotazníkovém šetření nasbíráno od respondentů 85 odpovědí. Z~tohoto celku je 74 odpovědí od respondentů, kteří jsou v~současné době studenty Vysoké školy ekonomické v~Praze a o~rozšíření VŠE+ slyšeli. Z~těchto 74 odpovědí pak 42 respondentů chtělo odpovídat na doplňující otázky ke každé z~implementovaných funkcionalit. Vzhledem k~počtu instalací webového rozšíření se jedná o~poměrně rozsáhlý vzorek uživatelů. 
 
 \subsection{Demografie respondentů}
 
-Jako relevantní demografické údaje sbírané od respondentů byly zvoleny údaje o stupni vysokoškolského studia, ročníku a fakultě, na které respondent studuje. Z celkového počtu 74 respondentů bylo 71 respondentů z fakulty informatiky a statistiky, což je pravděpodobným důsledkem zvolených způsobů sdílení formuláře.
+Jako relevantní demografické údaje sbírané od respondentů byly zvoleny údaje o~stupni vysokoškolského studia, ročníku a fakultě, na které respondent studuje. Z~celkového počtu 74 respondentů bylo 71 respondentů z~fakulty informatiky a statistiky, což je pravděpodobným důsledkem zvolených způsobů sdílení formuláře.
 
-Rozložení počtu respondentů vzhledem k stupni vysokoškolského studia a ročníku je možné vidět na obrázku \ref{fig:demografie-respondentu}. Nejpočetnější skupinou respondentů v tomto zobrazení jsou studenti 3. ročníku bakalářských studií, což může být opět důsledkem zvoleného způsobu sdílení formuláře. Zajímavým jevem, který je možné vypozorovat na obrázku \ref{fig:zdroj-instalace} je skutečnost, že studenti prvních a druhých ročníků se v porovnání se studenty třetích ročníků o rozšíření častěji dozvěděli z doporučení od spolužáka, zatímco studenti třetích ročníků se nejčastěji o rozšíření dozvěděli prostřednictvím neoficiálního fakultního serveru na chatovací platformě Discord. 
+Rozložení počtu respondentů vzhledem k~stupni vysokoškolského studia a ročníku je možné vidět na obrázku \ref{fig:demografie-respondentu}. Nejpočetnější skupinou respondentů v~tomto zobrazení jsou studenti 3. ročníku bakalářských studií, což může být opět důsledkem zvoleného způsobu sdílení formuláře. Zajímavým jevem, který je možné vypozorovat na obrázku \ref{fig:zdroj-instalace} je skutečnost, že studenti prvních a druhých ročníků se v~porovnání se studenty třetích ročníků o~rozšíření častěji dozvěděli z~doporučení od spolužáka, zatímco studenti třetích ročníků se nejčastěji o~rozšíření dozvěděli prostřednictvím neoficiálního fakultního serveru na chatovací platformě Discord. 
 
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/demografie-respondentu.png}
@@ -76,13 +76,13 @@ Rozložení počtu respondentů vzhledem k stupni vysokoškolského studia a ro�
 
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/zdroj-instalace.png}
-    \caption{Zdroje, ze kterých se respondenti o rozšíření dozvěděli (vlastní zpracování)}
+    \caption{Zdroje, ze kterých se respondenti o~rozšíření dozvěděli (vlastní zpracování)}
     \label{fig:zdroj-instalace}
 \end{figure}
 
 \subsection{Využívání přidaných funkcionalit}
 
-Ve čtvrté sekci dotazníku všichni respondenti, kteří jsou současnými nebo bývalými studenty VŠE vybírali z výběru 1 nebo více přidaných funkcionalit, které používají. Nasbírané statistiky od 60 respondentů zobrazuje graf na obrázku \ref{fig:features-data}. 51 respondentů využívá funkcionalitu náhledu rozvrhu při registraci rozvrhových akcí, 38 respondentů využívá funkcionalitu připomínání odevzdáváren a 52 respondentů využívá funkcionalitu vylepšeného rozvrhu. 
+Ve čtvrté sekci dotazníku všichni respondenti, kteří jsou současnými nebo bývalými studenty VŠE vybírali z~výběru 1 nebo více přidaných funkcionalit, které používají. Nasbírané statistiky od 60 respondentů zobrazuje graf na obrázku \ref{fig:features-data}. 51 respondentů využívá funkcionalitu náhledu rozvrhu při registraci rozvrhových akcí, 38 respondentů využívá funkcionalitu připomínání odevzdáváren a 52 respondentů využívá funkcionalitu vylepšeného rozvrhu. 
 
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/features.png}
@@ -90,9 +90,9 @@ Ve čtvrté sekci dotazníku všichni respondenti, kteří jsou současnými neb
     \label{fig:features-data}
 \end{figure}
 
-\subsection{Evaluace zpětné vazby k implementaci vylepšeného rozvrhu}
+\subsection{Evaluace zpětné vazby k~implementaci vylepšeného rozvrhu}
 
-V sekci dotazníku zaměřené na modul s vylepšeným rozvrhem byly na respondenty kladeny 3 otázky týkající se využívání dílčích funkcionalit pro lepší pochopení interakce respondentů s rozvrhem. Jak zobrazuje obrázek \ref{fig:timetable-feedback}, na otázku jestli respondenti využívají možnosti přepínání mezi jednotlivými týdny ve výukovém období 24 respondentů odpovědělo že ano a 18 respondentů odpovědělo že ne. Na otázku jestli respondenti využívají možnosti přidávání poznámek k hodinám v rozvrhu odpovědělo 6 respondentů ano a 36 respondentů ne. Toto bylo pro autora překvapivé zjištění, protože na základě analýzy práce s rozvrhem studentů předcházející samotné implementaci rozšíření vyplynulo, že ostatní studenti mají podobný workflow práce s rozvrhem jako autor. Výsledky dotazníkového šetření ovšem tento předpoklad vyvrací a potvrzují alternativní hypotézu, že se chování ostatních uživatelů rozšíření liší od výsledku analýzy.
+V~sekci dotazníku zaměřené na modul s~vylepšeným rozvrhem byly na respondenty kladeny 3 otázky týkající se využívání dílčích funkcionalit pro lepší pochopení interakce respondentů s~rozvrhem. Jak zobrazuje obrázek \ref{fig:timetable-feedback}, na otázku jestli respondenti využívají možnosti přepínání mezi jednotlivými týdny ve výukovém období 24 respondentů odpovědělo že ano a 18 respondentů odpovědělo že ne. Na otázku jestli respondenti využívají možnosti přidávání poznámek k~hodinám v~rozvrhu odpovědělo 6 respondentů ano a 36 respondentů ne. Toto bylo pro autora překvapivé zjištění, protože na základě analýzy práce s~rozvrhem studentů předcházející samotné implementaci rozšíření vyplynulo, že ostatní studenti mají podobný workflow práce s~rozvrhem jako autor. Výsledky dotazníkového šetření ovšem tento předpoklad vyvrací a potvrzují alternativní hypotézu, že se chování ostatních uživatelů rozšíření liší od výsledku analýzy.
 
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/timetable.png}

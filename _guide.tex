@@ -9,8 +9,8 @@ každá kapitola začíná na nové straně. Text je zarovnán do bloku. Nový o
 se obvykle odděluje malou vertikální mezerou a odsazením prvního řádku. Grafická
 úprava má být v~celém textu jednotná.
 
-Zkratky použité v textu musí být vysvětleny vždy u prvního výskytu zkratky (v~závorce nebo
-v poznámce pod čarou, jde-li o složitější vysvětlení pojmu či zkratky). Pokud je zkratek
+Zkratky použité v~textu musí být vysvětleny vždy u~prvního výskytu zkratky (v~závorce nebo
+v~poznámce pod čarou, jde-li o~složitější vysvětlení pojmu či zkratky). Pokud je zkratek
 více, připojuje se seznam použitých zkratek, včetně jejich vysvětlení a/nebo odkazů
 na definici.
 
@@ -174,9 +174,9 @@ Zlomky uvnitř odstavce (třeba $\frac{5}{7}$ nebo $\frac{x+y}{2}$) mohou
 být příliš stísněné, takže je lepší sázet jednoduché zlomky s~lomítkem:
 $5/7$, $(x+y)/2$.
 
-Pro méně obeznámené se zvyklostmi v matematické sazbě lze doporučit stručný text od Richarda Starého -- \url{http://richardstary.wz.cz/clanky/matsaz/matsaz.pdf} --, který je obecně platný bez ohledu na to, zda použijete \LaTeX\ nebo Word.
+Pro méně obeznámené se zvyklostmi v~matematické sazbě lze doporučit stručný text od Richarda Starého -- \url{http://richardstary.wz.cz/clanky/matsaz/matsaz.pdf} --, který je obecně platný bez ohledu na to, zda použijete \LaTeX\ nebo Word.
 
-Možnosti \LaTeX u pro sazbu matematiky jsou sice bohaté, ale je možné, že v některých specifických situacích nebudou postačovat. Proto lze doporučit k použití balíčky American Mathematical Society (AMS). V souboru \texttt{makra.tex} jsou standardně zaváděny balíčky \texttt{amsmath}, \texttt{amsfonts} a \texttt{amsthm}. Pro proniknutí do jejich možností poslouží:
+Možnosti \LaTeX u pro sazbu matematiky jsou sice bohaté, ale je možné, že v~některých specifických situacích nebudou postačovat. Proto lze doporučit k~použití balíčky American Mathematical Society (AMS). V~souboru \texttt{makra.tex} jsou standardně zaváděny balíčky \texttt{amsmath}, \texttt{amsfonts} a \texttt{amsthm}. Pro proniknutí do jejich možností poslouží:
 \begin{itemize}
 \item Math Extension with AMS\LaTeX\ -- \url{http://ptgmedia.pearsoncmg.com/images/0321173856/samplechapter/kopkach15.pdf}
 \item \url{https://www.overleaf.com/learn/latex/Aligning_equations_with_amsmath}
@@ -189,7 +189,7 @@ Ukázka číslovaného vzorce:
 \mathbf{b}=(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{y}
 \end{equation}
 
-Ukázka nečíslovaných vzorců s funkcemi a indexy:
+Ukázka nečíslovaných vzorců s~funkcemi a indexy:
 
 $$
 d_{ij}=\max_{k=1,2,\dots,n} \{d_{ik}+d_{kj}\},
@@ -198,14 +198,14 @@ $$
 x_{1,2}=b \pm \sqrt{\ln y}.
 $$
 
-Ukázku vzorce jako součást jednoho odstavce uveďme na příkladu kapacit dodavatelů v matematickém modelu dopravního problému, které zohledníme pomocí omezení:
+Ukázku vzorce jako součást jednoho odstavce uveďme na příkladu kapacit dodavatelů v~matematickém modelu dopravního problému, které zohledníme pomocí omezení:
 \begin{equation}
 \sum_{j=1}^n x_{ij} \le a_i, \qquad i=1,2,\dots,m\ ,
 \end{equation}
 \noindent
 kde výraz $a_i$ představuje kapacitu $i$-tého dodavatele.
 
-Při odvozování vzorce postupnou úpravou se obvykle jednotlivé kroky uvádějí na samostatných řádcích (prostředí \verb'align*' z balíčku \verb|amsmath|):
+Při odvozování vzorce postupnou úpravou se obvykle jednotlivé kroky uvádějí na samostatných řádcích (prostředí \verb'align*' z~balíčku \verb|amsmath|):
 \begin{align*}
  f(x) &= (x+a)(x+b) =\\
       &= x^2 + bx + ax + ab =\\
@@ -223,23 +223,23 @@ x_{ij} \in \{0,1\} && i=1,2,\dots,n,\quad j=1,2,\dots,n,\\
 
 %%% Fiktivní kapitola s ukázkami citací
 
-\chapter{Práce s literaturu}
+\chapter{Práce s~literaturu}
 
-Šablona předpokládá použití bibliografické databáze z důvodu větší flexibility. Použití bibliografické databáze není nutnou podmínkou, lze si vystačit i se standardním prostředím \texttt{thebibliography}. V takovém případě je však zapotřebí provést zásahy do některých souborů, jak je uvedeno dále.
+Šablona předpokládá použití bibliografické databáze z~důvodu větší flexibility. Použití bibliografické databáze není nutnou podmínkou, lze si vystačit i se standardním prostředím \texttt{thebibliography}. V~takovém případě je však zapotřebí provést zásahy do některých souborů, jak je uvedeno dále.
 
 \section{Použití bibliografické databáze}
 
 \begin{enumerate}
 \item\textbf{Změna názvu databáze}\\
-V šabloně se předpokládá databáze uložená v souboru \texttt{literatura.bib}. Pokud se databáze jmenuje jinak, pak je nutné v souboru \texttt{makra.tex} změnit hodnotu parametru příkazu \verb'\bibliography'.
+V~šabloně se předpokládá databáze uložená v~souboru \texttt{literatura.bib}. Pokud se databáze jmenuje jinak, pak je nutné v~souboru \texttt{makra.tex} změnit hodnotu parametru příkazu \verb'\bibliography'.
 \item\textbf{Změna citačního stylu}\\
-Standardně se citace v textu uvádějí v číselné variantě. Na použití kombinace příjmení a roku lze snadno přepnout změnou v souboru \texttt{makra.tex}, kde se prohodí komentářový znak v parametrech pro balíček \texttt{biblatex}.
+Standardně se citace v~textu uvádějí v~číselné variantě. Na použití kombinace příjmení a roku lze snadno přepnout změnou v~souboru \texttt{makra.tex}, kde se prohodí komentářový znak v~parametrech pro balíček \texttt{biblatex}.
 \end{enumerate}
 
 
 \section{Použití prostředí \texttt{thebibliography}}
 \begin{enumerate}
-\item V souboru \texttt{makra.tex} vymazat na počátku tyto řádky:
+\item V~souboru \texttt{makra.tex} vymazat na počátku tyto řádky:
 \begin{verbatim}
 %%% Nastavení pro použití samostatné bibliografické databáze.
 %%% Settings for using a separate bibliographic database.
@@ -260,11 +260,11 @@ Standardně se citace v textu uvádějí v číselné variantě. Na použití ko
 
 \bibliography{literatura}
 \end{verbatim}
-\item V souboru \texttt{literatura.tex} odstranit řádek s příkazem \verb'\printbibliography' a odstranit příznak komentáře v další části obsahující prostředí \texttt{thebibliography.}
+\item V~souboru \texttt{literatura.tex} odstranit řádek s~příkazem \verb'\printbibliography' a odstranit příznak komentáře v~další části obsahující prostředí \texttt{thebibliography.}
 \end{enumerate}
 
 
-\section{Jak citovat v textu}
+\section{Jak citovat v~textu}
 \begin{center}
 \begin{tabular}{l@{~~$\longrightarrow$~~}l}
 \verb|\cite{Cermak2018}|&\cite{Cermak2018}\\
