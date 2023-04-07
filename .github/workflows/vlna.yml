@@ -17,7 +17,7 @@ jobs:
           packages: vlna
 
       - name: Fix whitespace 
-        run: bash -c "vlna *.tex"
+        run: bash -c "vlna -n -m *.tex"
 
       - name: Commit updated tex sources
         uses: EndBug/add-and-commit@v9
