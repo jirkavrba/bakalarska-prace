@@ -1,0 +1,323 @@
+%%% Fiktivní kapitola s ukázkami sazby
+
+\chapter{Nápověda k~sazbě}
+
+\section{Úprava práce}
+
+Vlastní text práce je uspořádaný hierarchicky do kapitol a podkapitol,
+každá kapitola začíná na nové straně. Text je zarovnán do bloku. Nový odstavec
+se obvykle odděluje malou vertikální mezerou a odsazením prvního řádku. Grafická
+úprava má být v~celém textu jednotná.
+
+Zkratky použité v textu musí být vysvětleny vždy u prvního výskytu zkratky (v~závorce nebo
+v poznámce pod čarou, jde-li o složitější vysvětlení pojmu či zkratky). Pokud je zkratek
+více, připojuje se seznam použitých zkratek, včetně jejich vysvětlení a/nebo odkazů
+na definici.
+
+Delší převzatý text jiného autora je nutné vymezit uvozovkami nebo jinak vyznačit a řádně
+citovat.
+
+\section{Jednoduché příklady}
+
+Mezi číslo a jednotku patří úzká mezera: šířka stránky A4 činí $210\,\rm mm$, což si
+pamatuje pouze $5\,\%$ autorů. Pokud ale údaj slouží jako přívlastek, mezeru vynecháváme:
+$25\rm mm$ okraj, $95\%$ interval spolehlivosti.
+
+Rozlišujeme různé druhy pomlček:
+červeno-černý (krátká pomlčka),
+strana 16--22 (střední),
+$45-44$ (matematické minus),
+a~toto je --- jak se asi dalo čekat --- vložená věta ohraničená dlouhými pomlčkami.
+
+V~českém textu se používají \uv{české} uvozovky, nikoliv ``anglické''.
+
+% V tomto odstavci se vlnka zviditelňuje
+{
+\def~{{\tt\char126}}
+Na některých místech je potřeba zabránit lámání řádku (v~\TeX{}u značíme vlnovkou):
+u~před\-lo\-žek (neslabičnych, nebo obecně jednopísmenných), vrchol~$v$, před $k$~kroky,
+a~proto, \dots{} obecně kdekoliv, kde by při rozlomení čtenář \uv{ško\-brt\-nul}.
+}
+
+%%% Fiktivní kapitola s ukázkami tabulek, obrázků a kódu
+
+\chapter{Tabulky, obrázky, programy, vzorce}
+
+Používání tabulek a grafů/obrázků v~odborném textu má některá společná pravidla a~některá specifická. Tabulky a grafy/obrázky neuvádíme přímo do textu, ale umístíme je buď na samostatné stránky nebo na vyhrazené místo v~horní nebo dolní části běžných stránek. \LaTeX\ se o~umístění plovoucích grafů a tabulek postará automaticky.
+
+Grafy/obrázky a tabulky se číslují a jsou vybaveny legendou. Legenda má popisovat obsah grafu či tabulky tak podrobně, aby jim čtenář rozuměl bez důkladného studování textu práce.
+
+Na tabulku a graf/obrázek musí být v~textu číselný odkaz (lze důrazně doporučit dynamický mechanismus křížových referencí, jený je součástí \LaTeX u). Na příslušném místě textu pak shrneme ty nejdůležitější závěry, které lze z~tabulky či grafu učinit. Text by měl být čitelný a srozumitelný i~bez prohlížení tabulek a grafů a tabulky a grafy by měly být srozumitelné i~bez podrobné četby textu.
+
+Na tabulky a grafy odkazujeme pokud možno nepřímo v~průběhu běžného
+toku textu; místo \emph{\uv{Tabulka~\ref{tab03:Nejaka} ukazuje, že
+    muži jsou v~průměru o~$9,9\,\rm kg$ těžší než ženy}} raději napíšeme
+\emph{\uv{Muži jsou o~$9,9\,\rm kg$ těžší než ženy (viz
+    tab.~\ref{tab03:Nejaka})}}.
+
+\section{Tabulky}
+
+\begin{table}[htbp!]
+
+\centering
+%%% Tabulka používá následující balíčky:
+%%%   - booktabs (\toprule, \midrule, \bottomrule)
+%%%   - dcolumn (typ sloupce D: vycentrovaná čísla zarovnaná na
+%%%     desetinnou čárku
+%%%     Všimněte si, že ve zdrojovém kódu jsou desetinné tečky, ale
+%%%     tisknou se čárky.
+
+\caption{Maximálně věrohodné odhady v~modelu M.}\label{tab03:Nejaka}
+\begin{tabular}{lD{.}{,}{3.2}D{.}{,}{1.2}D{.}{,}{2.3}}
+\toprule
+               &                & \multicolumn{1}{c}{\textbf{Směrod.}}   &  \\
+\textbf{Efekt} & \multicolumn{1}{c}{\textbf{Odhad}} & \multicolumn{1}{c}{\textbf{chyba}$^a$} & \multicolumn{1}{c}{\textbf{P-hodnota}} \\
+\midrule
+Abs. člen     & -10.01 & 1.01 & \multicolumn{1}{c}{---} \\
+Pohlaví (muž) & 9.89   & 5.98 & 0.098 \\
+Výška (cm)    & 0.78   & 0.12 & <0.001 \\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize \textit{Pozn:}$^a$ Směrodatná chyba odhadu metodou Monte Carlo.}
+\end{tabular}
+\end{table}
+
+U~\textbf{tabulek} se doporučuje dodržovat následující pravidla:
+
+\begin{itemize} %% nebo compactitem z balíku paralist
+\item Vyhýbat se svislým linkám. Silnějšími vodorovnými linkami
+  oddělit tabulku od okolního textu včetně legendy, slabšími
+  vodorovnými linkami oddělovat záhlaví sloupců od těla tabulky a
+  jednotlivé části tabulky mezi sebou. V~\LaTeX u tuto podobu tabulek
+  implementuje balík \texttt{booktabs}. Chceme-li výrazněji oddělit
+  některé sloupce od jiných, vložíme mezi ně větší mezeru.
+\item Neměnit typ, formát a význam obsahu políček v~tomtéž sloupci
+  (není dobré do téhož sloupce zapisovat tu průměr, onde procenta).
+\item Neopakovat tentýž obsah políček mnohokrát za sebou. Máme-li
+  sloupec \textit{Rozptyl}, který v~prvních deseti řádcích obsahuje
+  hodnotu $0,5$ a v~druhých deseti řádcích hodnotu $1,5$, pak tento
+  sloupec raději zrušíme a vyřešíme to jinak. Například můžeme tabulku
+  rozdělit na dvě nebo do ní vložit popisné řádky, které informují
+o~nějaké proměnné hodnotě opakující se v~následujícím oddíle tabulky
+  (např. \emph{\uv{Rozptyl${}=0,5$}} a níže \emph{\uv{Rozptyl${}=
+      1,5$}}).
+\item Čísla v~tabulce zarovnávat na desetinnou čárku.
+\item V~tabulce je někdy potřebné používat zkratky, které se jinde
+nevyskytují. Tyto zkratky můžeme vysvětlit v~legendě nebo
+v~poznámkách pod tabulkou. Poznámky pod tabulkou můžeme využít i
+k~podrobnějšímu vysvětlení významu  některých sloupců nebo hodnot.
+\end{itemize}
+
+
+\section{Obrázky}
+
+\begin{figure}[htbp!]\centering
+\includegraphics[width=.66\textwidth]{img/ukazka-obr01}
+% Příponu není potřeba explicitně uvádět, pdflatex automaticky hledá pdf.
+% Rozměry také není nutné uvádět.
+\caption{Náhodný výběr z~rozdělení $\mathcal{N}_2(\boldsymbol{0},\,I)$.}
+\label{obr03:Nvyber}
+\end{figure}
+
+Několik rad týkajících se obrázků a grafů.
+
+\begin{itemize}
+\item Graf by měl být vytvořen ve velikosti, v~níž bude použit
+  v~práci. Zmenšení příliš velkého grafu vede ke špatné čitelnosti
+  popisků.
+\item Osy grafu musí být řádně popsány ve stejném jazyce, v~jakém je
+  psána práce (absenci diakritiky lze tolerovat). Kreslíme-li graf
+  hmotnosti proti výšce, nenecháme na nich popisky \texttt{ht} a
+  \texttt{wt}, ale osy popíšeme \emph{Výška [cm]} a~\emph{Hmotnost
+    [kg]}. Kreslíme-li graf funkce $h(x)$, popíšeme osy $x$ a $h(x)$.
+  Každá osa musí mít jasně určenou škálu.
+\item Chceme-li na dvourozměrném grafu vyznačit velké množství bodů,
+  dáme pozor, aby se neslily do jednolité černé tmy. Je-li bodů mnoho,
+  zmenšíme velikost symbolu, kterým je vykreslujeme, anebo vybereme
+  jen malou část bodů, kterou do grafu zaneseme. Grafy, které obsahují
+  tisíce bodů, dělají problémy hlavně v~elektronických dokumentech,
+  protože výrazně zvětšují velikost souborů.
+\item Budeme-li práci tisknout černobíle, vyhneme se používání barev.
+  Čáry roz\-li\-šu\-je\-me typem (plná, tečkovaná, čerchovaná,\ldots), plochy
+  dostatečně roz\-díl\-ný\-mi intensitami šedé nebo šrafováním. Význam
+  jednotlivých typů čar a~ploch vysvětlíme buď v~textové legendě ke
+  grafu anebo v~grafické legendě, která je přímo součástí obrázku.
+\item Vyhýbejte se bitmapovým obrázkům o~nízkém rozlišení a zejména
+  JPEGům (zuby a kompresní artefakty nevypadají na papíře pěkně).
+  Lepší je vytvářet obrázky vektorově a vložit do textu jako PDF.
+\end{itemize}
+
+
+\section{Zdrojové kódy}
+Algoritmy, výpisy programů a popis interakce s~programy je vhodné odlišit od ostatního textu. Jednou z~možností je použití {\LaTeX}o\-vé\-ho balíčku \texttt{listings}, pomocí něhož je v~souboru \texttt{makra.tex} nadefinováno jednoduché prostředí \texttt{code}. Pomocí něho lze vytvořit např. následující ukázky.
+
+\begin{code}
+> mean(x)
+[1] 158.90
+> objekt$prumer
+[1] 158.90
+\end{code}
+
+Balíček \texttt{listings} a jeho prostředí \texttt{lstlisting} však nabízí téměř nepřeberné množství konfiguračních parametrů, např. pro zvýrazňování syntaxe programovacích jazyků (několika desítek), číslování řádku atd. Příklady:
+\begin{itemize}
+\item \url{https://en.wikibookSource_Code_Listings.org/wiki/LaTeX/s}
+\item \url{https://www.overleaf.com/learn/latex/Code_listing#Using_listings_to_highlight_code}
+\end{itemize}
+
+
+\section{Sazba matematiky}
+Proměnné sázíme kurzívou (to \TeX{} v~matematickém módu dělá sám, ale
+nezapomínejte na to v~okolním textu a také si matematický mód zapněte).
+Názvy funkcí sázíme vzpřímeně. Tedy například:
+$\textrm{var} (X) = \textsf{E~} X^2 - \bigl(\textsf{E~} X \bigr)^2$.
+
+Zlomky uvnitř odstavce (třeba $\frac{5}{7}$ nebo $\frac{x+y}{2}$) mohou
+být příliš stísněné, takže je lepší sázet jednoduché zlomky s~lomítkem:
+$5/7$, $(x+y)/2$.
+
+Pro méně obeznámené se zvyklostmi v matematické sazbě lze doporučit stručný text od Richarda Starého -- \url{http://richardstary.wz.cz/clanky/matsaz/matsaz.pdf} --, který je obecně platný bez ohledu na to, zda použijete \LaTeX\ nebo Word.
+
+Možnosti \LaTeX u pro sazbu matematiky jsou sice bohaté, ale je možné, že v některých specifických situacích nebudou postačovat. Proto lze doporučit k použití balíčky American Mathematical Society (AMS). V souboru \texttt{makra.tex} jsou standardně zaváděny balíčky \texttt{amsmath}, \texttt{amsfonts} a \texttt{amsthm}. Pro proniknutí do jejich možností poslouží:
+\begin{itemize}
+\item Math Extension with AMS\LaTeX\ -- \url{http://ptgmedia.pearsoncmg.com/images/0321173856/samplechapter/kopkach15.pdf}
+\item \url{https://www.overleaf.com/learn/latex/Aligning_equations_with_amsmath}
+\item Math Mode -- \url{http://tex.loria.fr/general/Voss-Mathmode.pdf}
+\item More Math into LaTeX -- \url{http://tug.ctan.org/info/Math_into_LaTeX-4/Short_Course.pdf}
+\end{itemize}
+
+Ukázka číslovaného vzorce:
+\begin{equation}
+\mathbf{b}=(\mathbf{X}^\mathsf{T}\mathbf{X})^{-1}\mathbf{X}^\mathsf{T}\mathbf{y}
+\end{equation}
+
+Ukázka nečíslovaných vzorců s funkcemi a indexy:
+
+$$
+d_{ij}=\max_{k=1,2,\dots,n} \{d_{ik}+d_{kj}\},
+$$
+$$
+x_{1,2}=b \pm \sqrt{\ln y}.
+$$
+
+Ukázku vzorce jako součást jednoho odstavce uveďme na příkladu kapacit dodavatelů v matematickém modelu dopravního problému, které zohledníme pomocí omezení:
+\begin{equation}
+\sum_{j=1}^n x_{ij} \le a_i, \qquad i=1,2,\dots,m\ ,
+\end{equation}
+\noindent
+kde výraz $a_i$ představuje kapacitu $i$-tého dodavatele.
+
+Při odvozování vzorce postupnou úpravou se obvykle jednotlivé kroky uvádějí na samostatných řádcích (prostředí \verb'align*' z balíčku \verb|amsmath|):
+\begin{align*}
+ f(x) &= (x+a)(x+b) =\\
+      &= x^2 + bx + ax + ab =\\
+      &= x^2 + (a+b)x + ab
+\end{align*}
+
+Ukázka sloupcové úpravy (\verb|eqnarray*|):
+\begin{eqnarray*}
+\sum_{i=1}^n x_{ij} =1, && j=1,2,\dots,n,\\
+\sum_{j=1}^n x_{ij} =1, && i=1,2,\dots,n,\\
+u_i + 1 - M(1 - x_{ij}) \le u_j, && i=2,3,\dots,n,\quad j=1,2,\dots,n,\\
+u_i \ge 0,              && i=1,2,\dots,n,\\
+x_{ij} \in \{0,1\} && i=1,2,\dots,n,\quad j=1,2,\dots,n,\\
+\end{eqnarray*}
+
+%%% Fiktivní kapitola s ukázkami citací
+
+\chapter{Práce s literaturu}
+
+Šablona předpokládá použití bibliografické databáze z důvodu větší flexibility. Použití bibliografické databáze není nutnou podmínkou, lze si vystačit i se standardním prostředím \texttt{thebibliography}. V takovém případě je však zapotřebí provést zásahy do některých souborů, jak je uvedeno dále.
+
+\section{Použití bibliografické databáze}
+
+\begin{enumerate}
+\item\textbf{Změna názvu databáze}\\
+V šabloně se předpokládá databáze uložená v souboru \texttt{literatura.bib}. Pokud se databáze jmenuje jinak, pak je nutné v souboru \texttt{makra.tex} změnit hodnotu parametru příkazu \verb'\bibliography'.
+\item\textbf{Změna citačního stylu}\\
+Standardně se citace v textu uvádějí v číselné variantě. Na použití kombinace příjmení a roku lze snadno přepnout změnou v souboru \texttt{makra.tex}, kde se prohodí komentářový znak v parametrech pro balíček \texttt{biblatex}.
+\end{enumerate}
+
+
+\section{Použití prostředí \texttt{thebibliography}}
+\begin{enumerate}
+\item V souboru \texttt{makra.tex} vymazat na počátku tyto řádky:
+\begin{verbatim}
+%%% Nastavení pro použití samostatné bibliografické databáze.
+%%% Settings for using a separate bibliographic database.
+\usepackage[
+   backend=biber
+%  ,style=iso-authoryear
+  ,style=iso-numeric
+  ,sortlocale=cs_CZ
+  ,alldates=iso
+  ,bibencoding=UTF8
+  ,maxnames=2
+  ,maxbibnames=99
+  %,block=ragged
+]{biblatex}
+\let\cite\parencite
+\renewcommand*{\multinamedelim}{, \addspace}
+\renewcommand*{\finalnamedelim}{\addspace a \addspace}
+
+\bibliography{literatura}
+\end{verbatim}
+\item V souboru \texttt{literatura.tex} odstranit řádek s příkazem \verb'\printbibliography' a odstranit příznak komentáře v další části obsahující prostředí \texttt{thebibliography.}
+\end{enumerate}
+
+
+\section{Jak citovat v textu}
+\begin{center}
+\begin{tabular}{l@{~~$\longrightarrow$~~}l}
+\verb|\cite{Cermak2018}|&\cite{Cermak2018}\\
+\verb|\cite{Hladik2018,Jasek2018}|&\cite{Hladik2018,Jasek2018}\\
+\verb|\cite[kap. 3]{Pecakova2018}|&\cite[kap. 3]{Pecakova2018}\\
+\end{tabular}
+\end{center}
+
+%%% Fiktivní kapitola s instrukcemi k PDF/A
+
+\chapter{Formát PDF/A}
+
+Elektronická podoba závěrečných
+prací musí být odevzdávána ve formátu PDF/A úrovně 1a nebo 2u. To jsou
+profily formátu PDF určující, jaké vlastnosti PDF je povoleno používat,
+aby byly dokumenty vhodné k~dlouhodobé archivaci a dalšímu automatickému
+zpracování. Dále se budeme zabývat úrovní 2u, kterou sázíme \TeX{}em.
+
+Mezi nejdůležitější požadavky PDF/A-2u patří:
+
+\begin{itemize}
+
+\item Všechny fonty musí být zabudovány uvnitř dokumentu. Nejsou přípustné
+odkazy na externí fonty (ani na \uv{systémové}, jako je Helvetica nebo Times).
+
+\item Fonty musí obsahovat tabulku ToUnicode, která definuje převod z~kódování
+znaků použitého uvnitř fontu to Unicode. Díky tomu je možné z~dokumentu
+spolehlivě extrahovat text.
+
+\item Dokument musí obsahovat metadata ve formátu XMP a je-li barevný,
+pak také formální specifikaci barevného prostoru.
+
+\end{itemize}
+
+Tato šablona používá balíček {\tt pdfx,} který umí \LaTeX{} nastavit tak,
+aby požadavky PDF/A splňoval. Metadata v~XMP se generují automaticky podle
+informací v~souboru {\tt prace.xmpdata} (na vygenerovaný soubor se můžete
+podívat v~{\tt pdfa.xmpi}).
+
+Správnost PDF/A lze zkontrolovat pomocí on-line validátoru: \url{https://www.pdf-online.com/osa/validate.aspx/}.
+
+Pokud soubor nebude validní, mezi obvyklé příčiny patří používání méně
+obvyklých fontů (které se vkládají pouze v~bitmapové podobě a/nebo bez
+unicodových tabulek) a vkládání obrázků v~PDF, které samy o~sobě standard
+PDF/A nesplňují.
+
+Je pravděpodobné, že se to týká obrázků vytvářených mnoha různými programy.
+V~takovém případě se můžete pokusit obrázek do zkonvertovat do PDF/A pomocí
+GhostScriptu, například takto:
+
+
+\begin{verbatim}
+        gs -q -dNOPAUSE -dBATCH
+           -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress
+           -sOutputFile=vystup.pdf vstup.pdf
+\end{verbatim}
