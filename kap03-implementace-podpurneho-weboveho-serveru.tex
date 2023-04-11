@@ -241,11 +241,11 @@ Dalším faktorem pro zvážení před nasazením aplikace je provozní cena. Je
 
 \subsection{Výběr hostingu}
 
-Pro distribuci aplikace byl z důvodu přenositelnosti řešení zvolen nástroj Docker pro kontejnerizaci řešení. To značně zjednodušilo výběr platformy pro hosting, protože se od sebe poskytovaná řešení liší z pohledu běhového prostředí pouze minimálně v porovnání s řešeními pro hosting nativních Java aplikací.
+Pro distribuci aplikace byl z~důvodu přenositelnosti řešení zvolen nástroj Docker pro kontejnerizaci řešení. To značně zjednodušilo výběr platformy pro hosting, protože se od sebe poskytovaná řešení liší z~pohledu běhového prostředí pouze minimálně v~porovnání s~řešeními pro hosting nativních Java aplikací.
 
-Hlavním rozdílem mezi platformami byl způsob stanovení ceny. U flexibilních cloudových poskytovatelů jako je Amazon Web Service a řešení ESC (Elastic Container Service) nebo Google Cloud Run je cena počítána dynamicky podle míry využití poskytovaných zdrojů, které jsou alokovány dynamicky. U ostatních platforem je model výpočtu výsledné ceny více přímočarý, protože se jedná o fixní celkovou částku za předem definovanou statickou výpočetní kapacitu.
+Hlavním rozdílem mezi platformami byl způsob stanovení ceny. U~flexibilních cloudových poskytovatelů jako je Amazon Web Service a řešení ESC (Elastic Container Service) nebo Google Cloud Run je cena počítána dynamicky podle míry využití poskytovaných zdrojů, které jsou alokovány dynamicky. U~ostatních platforem je model výpočtu výsledné ceny více přímočarý, protože se jedná o~fixní celkovou částku za předem definovanou statickou výpočetní kapacitu.
 
-Po odhadu potřebných výpočetních zdrojů, které byly stanoveny pomocí průměru 5 měření metrik nástroje Micrometer byla odhadnuta cena provozu u jednotlivých platforem. Po vyhodnocení vyšla jako nejlepší varianta, která splňovala všechny kladené požadavky za nejmenší cenu platforma Digital Ocean Droplets, která umožňuje hosting docker kontejneru s aplikací s 1 vCPU a 512 mb RAM za 4 americké dolary měsíčně. Digital Ocean zároveň poskytuje slevu pro studenty v podobě kreditů, které po uplatnění sníží výsledné měsíční cenu za provoz pod 1 americký dolar.  
+Po odhadu potřebných výpočetních zdrojů, které byly stanoveny pomocí průměru 5 měření metrik nástroje Micrometer byla odhadnuta cena provozu u~jednotlivých platforem. Po vyhodnocení vyšla jako nejlepší varianta, která splňovala všechny kladené požadavky za nejmenší cenu platforma Digital Ocean Droplets, která umožňuje hosting docker kontejneru s~aplikací s~1 vCPU a 512 mb RAM za 4 americké dolary měsíčně. Digital Ocean zároveň poskytuje slevu pro studenty v~podobě kreditů, které po uplatnění sníží výsledné měsíční cenu za provoz pod 1 americký dolar.  
 
 
 \subsection{Využítí technologie Docker}\label{sec:docker}
