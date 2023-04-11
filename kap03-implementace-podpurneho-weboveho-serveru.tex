@@ -129,8 +129,6 @@ Pro načítání a ukládání dat z~tabulek pomocí doménových tříd slouž�
 
 Aplikační rámec Spring a modul Spring Data umožňuje tento tradiční přístup, který by bylo možné onznačit za spíše imperativní, nahradit deklarativní definicí repozitářů, které se starají o~načítání, cachování a ukládání dat pro konkrétní doménovou třídu a tedy posléze namapovanou databázovou tabulku. Nespornou výhodou repozitářů je jednoduchost jejich definice a použití. Repozitář lze definovat jako rozhraní označené anotací \code{@Repository}. Spring Data automaticky při vytváření aplikačního kontejneru vytvoří a zaregistruje instanci anonymní třídy, která implementuje definované rozhraní. Tuto instanci je možné následně z~aplikačního kontejneru získat pomocí dependency injection. Spring Data automaticky derivuje SQL dotazy z~názvu metod podle konvencí definovaných v~referenční dokumentaci tohoto modulu. Spring Data poskytuje řadu již definovaných generických rozhraní pro repozitáře, ze kterých je možné pro konkrétní repozitář zdědit často využívané definice metod. Příkladem může být generické rozhraní \code{CoroutineCrudRepository<T, ID>}, které obsahuje sadu definovaných CRUD (Create, Read, Update, Delete) metod jako je například \code{findById(id: ID): T}, která podle jmenné konvence odpovídá SQL dotazu \code{SELECT * FROM :table WHERE id = :id}. Například metoda \code{findByIdAndAccount} definovaná na repozitáři \code{TimetableEventsRepository} vypsaném ve výpise \ref{code:timetable-events-repository} odpovídá podle jmenné konvence SQL dotazu \code{SELECT * FROM timetable\_events WHERE id = :id AND account\_id = :account} ve kterém se za parametry \code{:id} a \code{:account} dosadí hodnoty předané při volání této metody.
 
-\todo{Ocitovat Spring Data dokumentaci ohledně derivace repozitářů?}
-
 \section{Vrstva pro zajištění business logiky}
 
 \subsection{Definice opakujících se událostí pro rozesílání upozornění}
@@ -243,7 +241,12 @@ Dalším faktorem pro zvážení před nasazením aplikace je provozní cena. Je
 
 \subsection{Výběr hostingu}
 
-\todo{Srovnání platform pro hostování docker containerů, výběr DO}
+Pro distribuci aplikace byl z důvodu přenositelnosti řešení zvolen nástroj Docker pro kontejnerizaci řešení. To značně zjednodušilo výběr platformy pro hosting, protože se od sebe poskytovaná řešení liší z pohledu běhového prostředí pouze minimálně v porovnání s řešeními pro hosting nativních Java aplikací.
+
+Hlavním rozdílem mezi platformami byl způsob stanovení ceny. U flexibilních cloudových poskytovatelů jako je Amazon Web Service a řešení ESC (Elastic Container Service) nebo Google Cloud Run je cena počítána dynamicky podle míry využití poskytovaných zdrojů, které jsou alokovány dynamicky. U ostatních platforem je model výpočtu výsledné ceny více přímočarý, protože se jedná o fixní celkovou částku za předem definovanou statickou výpočetní kapacitu.
+
+Po odhadu potřebných výpočetních zdrojů, které byly stanoveny pomocí průměru 5 měření metrik nástroje Micrometer byla odhadnuta cena provozu u jednotlivých platforem. Po vyhodnocení vyšla jako nejlepší varianta, která splňovala všechny kladené požadavky za nejmenší cenu platforma Digital Ocean Droplets, která umožňuje hosting docker kontejneru s aplikací s 1 vCPU a 512 mb RAM za 4 americké dolary měsíčně. Digital Ocean zároveň poskytuje slevu pro studenty v podobě kreditů, které po uplatnění sníží výsledné měsíční cenu za provoz pod 1 americký dolar.  
+
 
 \subsection{Využítí technologie Docker}\label{sec:docker}
 
@@ -253,10 +256,10 @@ Docker umožňuje snadno vytvářet, spravovat a sdílet tyto kontejnery, což v
 
 Docker pracuje s~konceptem takzvaných images, které si lze představit jako šablonu pro vytváření kontejnerů. Tyto image jsou projekcí stavu souborového systému a z~jedné image je možné vytvořit neomezené množství kontejnerů, které pak následně nástroj docker spravuje. 
 
-\todo{srovnání tradičního deploymentu s~dockerem?}
-
 \subsection{Automatické sestavování docker image pomocí GitLab CI/CD}
 
 Pro sestavení docker image obsahující zdrojové kódy a běhové prostředí pro podpůrný webový server je možné využít kombinaci nástrojů GitLab CI/CD a GitLab Container Registry. GitLab Container Registry je platforma implementující protokol pro vytváření a publikaci repozitářů pro docker image.
 
-\todo{Odkaz na GitLab repozitář https://gitlab.com/vse-plus/api}
+\subsection{Zdrojové kódy a historie změn}
+
+Aktuální verze zdrojových kódu a historie změn pro podpůrný webový server je dostupná jako repozitář na platformě GitLab na adrese \url{https://gitlab.com/vse-plus/api}.
