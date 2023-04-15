@@ -10,7 +10,7 @@ Právě prostřednictvím injekce vlastních skriptů a kaskádových stylů jso
 
 Základní částí každého rozšíření do webových prohlížečů, bez které nemůže rozšíření vzniknout, je soubor \code{manifest.json}. Jedná se o~konfigurační soubor, který definuje všechny potřebné atributy od názvu rozšíření, popisu, autora až po definice oprávnění a specifikaci přidaných funkcí a skriptů. 
 
-Jednou z překážek při vývoji rozšíření, která jsou podporována více než jedním webovým prohlížečem je zajištění kompatibility mezi běhovým prostředím a verzí manifestu. Jelikož webový prohlížeč Mozilla Firefox v době psaní této práce nepodporuje manifest s verzí 3 a zároveň webové prohlížeče založené na technologii Chrome nepodporuje manifest s verzí 2, bylo potřeba tyto manifest soubory oddělit do 2 verzí. V projektu se jedná o soubory `public/manifest-chrome.json` pro webové prohlížeče založené na technologii Chrome a soubor `public/manifest-firefox.json` pro webový prohlížeč Firefox.
+Jednou z~překážek při vývoji rozšíření, která jsou podporována více než jedním webovým prohlížečem je zajištění kompatibility mezi běhovým prostředím a verzí manifestu. Jelikož webový prohlížeč Mozilla Firefox v~době psaní této práce nepodporuje manifest s~verzí 3 a zároveň webové prohlížeče založené na technologii Chrome nepodporuje manifest s~verzí 2, bylo potřeba tyto manifest soubory oddělit do 2 verzí. V~projektu se jedná o~soubory `public/manifest-chrome.json` pro webové prohlížeče založené na technologii Chrome a soubor `public/manifest-firefox.json` pro webový prohlížeč Firefox.
 
 \section{Content script}
 
@@ -312,9 +312,9 @@ V~rámci projektu jsou definované 2 webpack konfigurace pro sestavování balí
 
 Definice aliasů viz výpis \ref{code:package-json-webpack-alias} umožňují sestavení balíčku pomocí nástroje webpack spouštět přes příkazy \code{npm run dev} pro vývojovou konfiguraci, respektive \code{npm run build} pro produkční konfiguraci. Parametr \code{-{}-watch} u~aliasu \code{dev} spustí webpack v~takzvaném watch módu, který spouští kompilaci po změně jakéhokoliv ze souborů, které webpack spravuje. To zásadním způsobem zvyšuje produktivitu při vývoji rozšíření, protože je možné ihned po úpravě zdrojového kódu pozorovat implementované změny bez nutnosti manuálního spouštění kompilace a sestavení balíčku.
 
-Pro zjednodušení a automatizaci sestavování rozšíření do balíčku publikovatelného na zmíněné internetové obchody je využíváno GitLab CI/CD pipeline, která automaticky sestavuje balíčky a vytváří takzvané releases na platformě GitLab, ze kterých je možné tyto sestavené balíčky přímo publikovat na zmíněné internetové obchody s rozšířeními. 
+Pro zjednodušení a automatizaci sestavování rozšíření do balíčku publikovatelného na zmíněné internetové obchody je využíváno GitLab CI/CD pipeline, která automaticky sestavuje balíčky a vytváří takzvané releases na platformě GitLab, ze kterých je možné tyto sestavené balíčky přímo publikovat na zmíněné internetové obchody s~rozšířeními. 
 
-Zdrojový kód této CI pipeline je možné vidět ve výpise \ref{code:gitlab-ci-pipeline} a snímek obrazovky z platformy GitLab s výsledkem běhu je možné vidět na obrázku \ref{fig:extension-gitlab-ci}.
+Zdrojový kód této CI pipeline je možné vidět ve výpise \ref{code:gitlab-ci-pipeline} a snímek obrazovky z~platformy GitLab s~výsledkem běhu je možné vidět na obrázku \ref{fig:extension-gitlab-ci}.
 
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/extension-gitlab-ci-pipeline-overview.png}
