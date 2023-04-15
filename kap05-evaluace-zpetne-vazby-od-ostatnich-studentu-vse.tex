@@ -4,26 +4,27 @@ Tato kapitola se zabývá evaluací zpětné vazby od ostatních studentů Vysok
 
 Pro sběr zpětné vazby od ostatních studentů Vysoké školy ekonomické v~Praze pro následnou evaluaci byla zvolena metoda dotazníkového šetření. Cílem dotazníku je lépe pochopit potřeby uživatelů webového rozšíření a zodpovědět stanovené hypotézy.
 
-Byly stanoveny celkem 3 otázky, na které se dotazníkové šetření snaží odpovědět:
+% Byly stanoveny celkem 3 otázky, na které se dotazníkové šetření snaží odpovědět:
 
-\begin{itemize}
-    \item Jak se uživatelé o~rozšíření dozvěděli?
-    \item Jaké z~přidaných funkcionalit uživatelé využívají?
-    \item Jak by se daly tyto funkcionality vylepšit a nebo rozšířit?
-\end{itemize}
+% \begin{itemize}
+%     \item Jak se uživatelé o~rozšíření dozvěděli?
+%     \item Jaké z~přidaných funkcionalit uživatelé využívají?
+%     \item Jak by se daly tyto funkcionality vylepšit a nebo rozšířit?
+% \end{itemize}
 
-Dále byly stanoveny následující hypotézy, které chci za pomocí dotazníkového šetření otestovat:
+Byly stanoveny následující hypotézy, které jsou se dotazníkové šetření:
 
-\begin{itemize}
-    \item Většina uživatelů rozšíření VŠE+ využívá verzi s~přihlášením.
-    \item Všichni uživatelé rozšíření VŠE+ využívají alespoň polovinu přidaných funkcionalit.
-\end{itemize}
+\begin{enumerate}
+    \item Většina uživatelů rozšíření využívá rozšíření s přihlášením.
+    \item Většina uživatelů rozšíření využívá alespoň 2 z přidaných funkcionalit.
+    \item Výsledky dotazníkového šetření odpovídají počáteční analýze používání systému InSIS.
+\end{enumerate}
 
 \section{Návrh dotazníku}
 
-Dotazník byl vytvořen prostřednictvím platformy Google Forms, která umožňuje jednoduchou editaci a zároveň poskytuje pokročilé nástroje, jako větvení průchodu dotazníkem podle odpovědí respondenta. To je užitečné například pro zobrazení odlišných otázek respondentům, kteří rozšíření nepoužívají, aby byla zpětná vazba co nejrelevantnější. Nedávalo by smysl se respondentů, kteří rozšíření nepoužívají ptát na dílčí funkcionality nebo se naopak dotazovat uživatelů, kteří rozšíření mají nainstalované, jaké jsou jejich primární důvody proč rozšíření nepoužívají. 
+Dotazník byl vytvořen prostřednictvím platformy Google Forms, která umožňuje jednoduchou editaci a zároveň poskytuje nástroje pro tvorbu komplexních dotazníků, jako větvení průchodu dotazníkem podle předchozích odpovědí respondenta. To je užitečné například pro zobrazení odlišných otázek respondentům, kteří rozšíření nepoužívají, aby byla zpětná vazba co nejrelevantnější. Nedávalo by smysl se respondentů, kteří rozšíření nepoužívají ptát na dílčí funkcionality nebo se naopak dotazovat uživatelů, kteří rozšíření mají nainstalované, jaké jsou jejich primární důvody proč rozšíření nepoužívají. 
 
-Celý dotazník je členěn do 8 sekcí, které se respondentům zobrazují v~závislosti na předchozích odpovědích. Každá tato část obsahuje 1-20 otázek, které jsou buď výběr 1 nebo více možností z~předem stanoveného výběru nebo otevřené odpovědi s~doplněním vlastního textu. Schéma průchodu dotazníkem zobrazuje obrázek \ref{fig:dotaznik}.
+Celý dotazník je členěn do 8 sekcí, které se respondentům zobrazují v~závislosti na předchozích odpovědích. Každá část dotazníku obsahuje 1-20 otázek, které jsou buď výběr 1 nebo více možností z~předem stanoveného výběru nebo otevřené odpovědi s~doplněním vlastního textu. Schéma průchodu dotazníkem zobrazuje obrázek \ref{fig:dotaznik}.
 
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/dotaznik.png}
@@ -131,10 +132,21 @@ Odpovědi respondentů v~této sekci dotazníku odpovídají počáteční anal�
 
 V~této sekci dotazníku byly na respondenty kladeny 2 kvantitativní otázky a podobně jako u~ostatních částí na dílčí funkcionality, také 2 kvalitativní otázky.
 
-Cílem této části dotazníku bylo zhodnotit míru využívání náhledu rozvrhu při registraci předmětů a získat zpětnou vazbu k~implementaci vyznačování hodin s~kolizí v~rozvrhu. Hlavní zmiňovanou položkou při prvotních konzultacích s~uživateli rozšíření byla grafická stránka implementace, proto byly do možných odpovědí na otázku "Pomáhá vám při registracích funkce detekcí kolizí v~rozvrhu?" přidány možnosti "Ano, ale ocenil bych možnost vypnout grafické rozlišení" a "Ano, ale změnil bych grafické rozlišení".  
+
+Cílem této části dotazníku bylo zhodnotit míru využívání náhledu rozvrhu při registraci předmětů a získat zpětnou vazbu k implementaci vyznačování hodin s kolizí v rozvrhu. Hlavní zmiňovanou položkou při prvotních konzultacích s uživateli rozšíření byla grafická stránka implementace, proto byly do možných odpovědí na otázku "Pomáhá vám při registracích funkce detekcí kolizí v rozvrhu?" přidány možnosti "Ano, ale ocenil/a bych možnost vypnout grafické rozlišení" a "Ano, ale změnil/a bych grafické rozlišení".  
 
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/previews-visualization.png}
     \caption{Využití dílčích částí náhledu rozvrhů (vlastní zpracování)}
     \label{fig:pripomenuti-vizualizace}
 \end{figure}
+
+\section{Výsledky dotazníkového šetření}
+
+Na základě odpovědí od respondentů dotazníkového šetření byly zodpovězeny hypotézy stanovené na začátku kapitoly.
+
+První hypotéza "většina uživatelů rozšíření využívá rozšíření s přihlášením" byla potvrzena, jelikož 86.7 \% respondentů, kteří odpověděli, že rozšíření používají, používá rozšíření s aktivním přihlášením pomocí školního účtu.
+
+Druhá hypotéza "většina uživatelů rozšíření využívá alespoň 2 z přidaných funkcionalit" byla také potvrzena, jelikož přes 83 \% respondentů, kteří odpověděli, že rozšíření používají, používá alespoň 2 z přidaných funkcionalit.
+
+Poslední hypotéza "výsledky dotazníkového šetření odpovídají počáteční analýze používání systému InSIS" je jedinou hypotézou, která nebyla potvrzena. Důvodem je rozpor počáteční analýzy v oblasti používání rozvrhu a předpokladu používání poznámek přímo v rozvrhu a sesbíraných dat, která indikují pouze minimální využívání této přidané funkcionality. Chybná počáteční analýza používání rozvrhu mohla být způsobena velice omezeným počtem respondentů.
