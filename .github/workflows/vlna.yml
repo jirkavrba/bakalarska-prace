@@ -28,7 +28,7 @@ jobs:
           add: "*.tex"
           author_name: "Grammar nazi bot"
           author_email: "vlna@vrba.dev"
-          message: "Fix whitespace with vlna 🌊👍"
+          message: "Vlna drip check: {{ github.event.head_commit.message }} 🌊👍"
           push: true
 
 
