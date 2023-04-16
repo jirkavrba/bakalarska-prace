@@ -10,7 +10,7 @@ Právě prostřednictvím injekce vlastních skriptů a kaskádových stylů jso
 
 Základní částí každého rozšíření do webových prohlížečů, bez které nemůže rozšíření vzniknout, je soubor \code{manifest.json}. Jedná se o~konfigurační soubor, který definuje všechny potřebné atributy od názvu rozšíření, popisu, autora až po definice oprávnění a specifikaci přidaných funkcí a skriptů. 
 
-Jednou z~překážek při vývoji rozšíření, která jsou podporována více než jedním webovým prohlížečem je zajištění kompatibility mezi běhovým prostředím a verzí manifestu. Jelikož webový prohlížeč Mozilla Firefox v~době psaní této práce nepodporuje manifest s~verzí 3 a zároveň webové prohlížeče založené na technologii Chrome nepodporuje manifest s~verzí 2, bylo potřeba tyto manifest soubory oddělit do 2 verzí. V~projektu se jedná o~soubory `public/manifest-chrome.json` pro webové prohlížeče založené na technologii Chrome a soubor `public/manifest-firefox.json` pro webový prohlížeč Firefox.
+Jednou z~překážek při vývoji rozšíření, která jsou podporována více než jedním webovým prohlížečem je zajištění kompatibility mezi běhovým prostředím a verzí manifestu. Jelikož webový prohlížeč Mozilla Firefox v~době psaní této práce nepodporuje manifest s~verzí 3 a zároveň webové prohlížeče založené na technologii Chrome nepodporuje manifest s~verzí 2, bylo potřeba tyto manifest soubory oddělit do 2 verzí. V~projektu se jedná o~soubory \code{public/manifest-chrome.json} pro webové prohlížeče založené na technologii Chrome a soubor \code{public/manifest-firefox.json} pro webový prohlížeč Mozilla Firefox.
 
 \section{Content script}
 
@@ -76,11 +76,9 @@ Jak napovídá komentář na 3. řádku, pokud není uživatelská preference pr
 
 \subsection{Detekce podstránek}
 
-Jednou z~úloh content scriptu je detekce v~jakém modulu informačního systému InSIS se uživatel právě nachází pomocí URL adresy. Tuto adresu je možné získat z~atributu \code{href}, který je definovaný v~rámci globálního objektu \code{window.location}. Tento objekt se v~programovacím jazyce JavaScript a posléze TypeScript využívá pro získání aktuální adresy URL, na které se uživatel webového prohlížeče nachází.
+Jednou z~úloh content scriptu je detekce v~jakém modulu informačního systému InSIS se uživatel právě nachází pomocí URL adresy. Tuto adresu je možné získat z~atributu \code{href}, který je definovaný v~rámci globálního objektu \code{window.location}. Tento objekt se v~programovacím jazyce JavaScript a posléze TypeScript využívá pro získání aktuální adresy URL, na které se uživatel webového prohlížeče nachází \cite[kap. 15.10]{flanagan_javascript_2020}.
 
-\todo{Ocitovat MDN a window.location nebo Chernyho}
-
-Detekci modulu, ve kterém se uživatel informačního InSIS nachází je možné definovat pomocí tabulky \ref{tab:url-patterny}, která obsahuje mapování textových řetězců, které jsou unikátní pro každý zmíněný modul.
+Detekci modulu, ve kterém se uživatel informačního InSIS nachází, je možné definovat pomocí tabulky \ref{tab:url-patterny}, která obsahuje mapování textových řetězců, které jsou unikátní pro každý zmíněný modul.
 
 \begin{table}[htbp!]
 \centering
