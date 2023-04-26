@@ -251,6 +251,12 @@ Jak je vidět u~posledního definovaného přepínače, pokud se jedná o~přep�
 
 Detekce jestli se jedná o~závislý přepínač a jestli má být zablokována možnost měnit hodnotu se vyhodnocuje pro každý přepínač pomocí kódu ve výpise \ref{code:user-preferences-disabled}.
 
+\begin{figure}[H]\centering
+    \includegraphics[width=0.66\textwidth]{img/zavisle-prepinace.png}
+    \caption{Příklad závislého přepínače v uživatelských preferencích (vlastní zpracování)}
+    \label{fig:zavisle-prepinace}
+\end{figure}
+
 \begin{lstlisting}[label={code:user-preferences-disabled}, caption={Detekce stavu závislého přepínače (vlastní zpracování)}]
 const disabled = feature.includes(":") && !isFeatureEnabled(
     preferences,

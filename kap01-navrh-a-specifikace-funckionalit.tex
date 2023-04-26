@@ -17,7 +17,7 @@ Aby bylo možné bezpečně uchovávat uživatelská data na podpůrném serveru
 Celý proces přihlášení uživatele je zachycen pomocí diagramu na obrázku \ref{fig:autentikace}.
 
 Grafické rozhraní pro přihlašování bylo navrženo jako formulář, který obsahuje 2 části, kde v~první části je zobrazené uživatelské rozhraní pro zadání školní emailové adresy a po zadání školní emailové adresy se zobrazí druhá část, kde je zobrazené uživatelské rozhraní pro zadání kódu zaslaného na emailovou adresu zadanou v~předchozí části.
-Návrh grafického rozhraní formuláře pro přihlášení zachycuje obrázek \ref{fig:autentikace-wireframe}.
+Návrh grafického rozhraní formuláře pro přihlášení zachycuje obrázek \ref{fig:autentikace-wireframe} a obrázek \ref{fig:usecase-prihlaseni} zachycuje diagram případů užití pro funkcionalitu přihlášení do rozšíření.
 
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/autentikace.png}
@@ -39,11 +39,29 @@ end
 @enduml
 }
 
+
+\begin{figure}[htbp!]\centering
+    \includegraphics[width=\textwidth]{img/uc-prihlaseni.png}
+    \caption{Diagram případů užití přihlášení (vlastní zpracování)}
+    \label{fig:usecase-prihlaseni}
+\end{figure}
+\imgsource{
+@startuml
+"Přihlášený uživatel" as user
+"Nepřihlášený uživatel" as anonymous
+
+user --> (Změna uživatelských preferencí)
+anonymous --> (Změna uživatelských preferencí)
+anonymous --> (Přihlášení se do rozšíření pomocí kódu)
+@enduml
+}
+
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/wireframe-autentikace.png}
     \caption{Návrh grafického rozhraní přihlášení uživatele (vlastní zpracování)}
     \label{fig:autentikace-wireframe}
 \end{figure}
+
 
 \section{Zobrazení náhledu rozvrhu při registracích předmětů}
 
@@ -91,6 +109,25 @@ Tento nedostatek umocňuje skutečnost, že řada vyučujících vypisuje odevzd
 
 Dalším potencionálním zlepšením práce uživatelů s~odevzdávárnami je možnost exportu a synchronizace datumů uzavření s~kalendářem. Podobně jako u~připomenutí, tato funkcionalita je dostupná v~několika jiných modulech informačního systému InSIS. Jedním z~příkladů může být opět modul pro přihlašování na termíny zkoušek, který umožňuje synchronizaci časů zkoušek s~kalendářem.
 
+Obrázek \ref{fig:usecase-odevzdavarny} zachycuje diagram případů užití pro jednotlivé funkcionality připomenutí odevzdáváren.
+
+\begin{figure}[htbp!]\centering
+    \includegraphics[width=\textwidth]{img/uc-odevzdavarny.png}
+    \caption{Diagram případů užití připomenutí odevzdáváren (vlastní zpracování)}
+    \label{fig:usecase-odevzdavarny}
+\end{figure}
+\imgsource{
+@startuml
+"Přihlášený uživatel" as user
+"Nepřihlášený uživatel" as anonymous
+
+user --> (Vytvoření připomenutí na odevzdávárnu)
+user --> (Zrušení připomenutí na odevzdávárnu)
+user --> (Export odevzdáváren do externího kalendáře)
+anonymous --> (Export odevzdáváren do externího kalendáře)
+@enduml
+}
+
 \subsection{Návrh rozložení prvků na stránce}
 
 Z~analýzy grafického rozložení modulu pro odevzdávárny, že adekvátním řešením integrace uživatelského rozhraní pro připomínání odevzdáváren a export do externího kalendáře bude využití prázdného místa na pravé straně obrazovky rozšířením tabulky s~otevřenými odevzdávárnami o~2 nové sloupce.
@@ -107,9 +144,39 @@ Po vyhodnocení dotazníkového šetření s~celkovým počtem 31 respondentů b
 
 \section{Vylepšený rozvrh}\label{sec:vylepseny-rozvrh}
 
-Poslední z~navržených funkcionalit je vylepšená verze rozvrhu. Tato vylepšená verze se od původní verze liší jak po grafické, tak po funkční stránce. Nejzásadnějším rozdílem je integrace konceptu přepínání mezi jednotlivými výukovými týdny v~rámci rozvrhu. Původní implementace rozvrhu poskutovaná informačním systémem InSIS zobrazuje pouze statický rozvrh, který není závislý na aktuálně probíhajícím výukovém týdnu.
+Poslední z~navržených funkcionalit je vylepšená verze rozvrhu. Tato vylepšená verze se od původní verze liší jak po grafické, tak po funkční stránce. Nejzásadnějším rozdílem je integrace konceptu přepínání mezi jednotlivými výukovými týdny v~rámci rozvrhu. Původní implementace rozvrhu poskutovaná informačním systémem InSIS zobrazuje pouze statický rozvrh, který není závislý na aktuálně probíhajícím výukovém týdnu. 
 
-\subsection{Vylepšený vzhled rozvrhu}
+Obrázek \ref{fig:usecase-rozvrh} zachycuje diagram případů užití pro jednotlivé funkcionality vylepšeného rozvrhu.
+
+\begin{figure}[htbp!]\centering
+    \includegraphics[width=\textwidth]{img/uc-rozvrh.png}
+    \caption{Diagram případů užití vylepšeného rozvrhu (vlastní zpracování)}
+    \label{fig:usecase-rozvrh}
+\end{figure}
+\imgsource{
+@startuml
+left to right direction
+"Přihlášený uživatel" as user
+"Nepřihlášený uživatel" as anonymous
+
+user --> (Změněná grafická verze)
+user --> (Zobrazení aktuálního času)
+user --> (Zobrazení rozvrhových výjimek)
+user --> (Přepínání mezi výukovými týdny)
+
+
+user ---> (Zobrazení poznámek v rozvrhu)
+user ---> (Přidání poznámky do rozvrhu)
+user ---> (Odebrání poznámky v rozvrhu)
+
+(Změněná grafická verze) <-- anonymous
+(Zobrazení aktuálního času) <-- anonymous
+(Zobrazení rozvrhových výjimek) <-- anonymous
+(Přepínání mezi výukovými týdny) <-- anonymous
+@enduml
+}
+
+\subsection{Změnený vzhled rozvrhu}
 
 Jelikož v~rámci implementace bude docházet k~sestavování nové DOM stromové reprezentace pro zobrazení komponent tvořících zobrazení rozvrhu, naskytuje se příležitost vylepšit grafickou stránku rozvrhu. 
 
@@ -132,5 +199,3 @@ Poslední přidanou funkcionalitou, která rozšiřuje funkce rozvrhu je možnos
 Z~konzultací s~ostatními studenty vyplynulo, že značná část dotazovaných studentů sdílí workflow pro přípravu na nadcházející týden s~autorem práce. Tento workflow spočívá v~párování hodin v~rozvrhu s~externě poznamenanými testy, úkoly a prezentacemi. Nejčastějším prostředkem pro poznámky k~hodinám je externí aplikace pro psaní textových poznámek, správy úkolů\footnote{Například aplikace Google Keep nebo Microsoft To Do} nebo kalendář.
 
 Správa poznámek přímo v~rozvrhu umožňuje zefektivnění přípravy na hodiny, protože spojuje všechny potřebné informace do jednoho uživatelského rozhraní bez nutnosti přepínání mezi aplikacemi.
-
-Z~analýzy dotazníkového šetření, kterou popisuje kapitola \ref{chap:zpetna-vazba}, vyplynulo, že tento předpoklad očekávané práce studentů s~rozvrhem byl mylný a přidanou funkcionalitu poznámek v~rozvrhu využívá pouze menšina uživatelů rozšíření.
