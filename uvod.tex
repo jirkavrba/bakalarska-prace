@@ -1,25 +1,37 @@
 \chapter*{Úvod}
 \addcontentsline{toc}{chapter}{Úvod}
 
-Během svého studia na Vysoké škole ekonomické v~Praze všichni studenti přijdou do styku se školním informačním systémem InSIS. Tento informační systém obsahuje širokou škálu modulů a funkcionalit, se kterými studenti během svého studia na vysoké škole pracují. Tento systém se skládá z velkého množství samostaných modulů, které obsahují nespočet 
+Integrovaný studijní informační systém (InSIS) je nedílnou součástí života každého studenta Vysoké školy ekonomické v Praze. Tento informační systém tvoří široká škála modulů, které obsahují nespočet dílčích funkcí. Všichni studenti s tímto informačním systémem přichází do styku na denní bázi a zjednodušení práce s tímto systémem by mělo pozitivní vliv na celou řadu studentů. Jednou z možností jak zjednodušit práci uživatelů se systémem je přidání nových funkcionalit, které integrují data napříč moduly informačního systému nebo funkce jednotlivých modulů rozšiřují. 
 
-Ačkoliv tento systém poskytuje svým uživatelům všechny potřebné informace, přidáním některých funkcionalit by bylo možné zlepšit produktivitu uživatelů tohoto systému a celkově zpříjemnit studium studentů.
+Jelikož informační systém InSIS je proprietárním řešením dodávaným externí firmou IS4U s.r.o., není možné upravovat přímo zdrojové kódy tohoto systému a namísto toho je nutné nové funkcionality implementovat v podobě externího softwarového řešení, které není do systému InSIS přímo integrováno. 
 
-Tato práce si klade za cíl vymezit a následně implementovat rozšiřující funkcionality do informačního systému InSIS, které následně budou distribuovány v~podobě rozšíření do webových prohlížečů. Součástí práce je zároveň implementace podpůrného webového serveru, který poskytuje REST API pro uživatele rozšíření. Dále práce popisuje výběr použitých technologií pro implementací obou softwarových částí produktu. Posledním cílem je evaluace zpětné vazby od ostatních studentů a ověření stanovených hypotéz.
+Motivací pro tuto práci byl uživatelský skript naprogramovaný autorem práce v průběhu studia, který spojoval moduly zobrazení aktuálního rozvrhu s registrací rozvrhových akcí. Toto řešení nebylo příliš přenositelné a spolehlivé, a jeho uživatelé se často potýkali se složitým procesem instalace a problémy při používání. I přes neoptimální podmínky se však tento skript setkal s pozitivním ohlasem a zpětnou vazbou od jeho uživatelů.
 
-Motivací pro tuto práci byla negativní zkušenost autora a jeho spolužáků s~používáním některých modulů školního informačního systému InSIS. 
-Současné podobě této práce předcházela sada uživatelských skriptů naprogramovaných autorem v~průběhu studia, které má tato práce za cíl nahradit a naimplementovat nové, rozšiřující funkcionality do informačního systému InSIS v~podobě koherentního softwarového řešení, které bude jednoduché na instalaci a používání.
+Tato práce se zaměřuje na vytváření kvalitního, koherentního softwarového řešení pro implementaci přidaných funkcionalit, které bude jednoduché na instalaci a používání. Toto řešení by mělo zmíněný uživatelský skript nahradit a přidat nové funkcionality, jako například připomenutí odevzdáváren s blížící se dobou uzavření, přidání náhledu rozvrhu při registraci rozvrhových akcí nebo rozšíření funkcí nabízených modulem pro zobrazení rozvrhu studenta. 
 
-Práce je dělena do celkem pěti částí: 
+Jako forma implementace těchto nových funkcionalit bylo zvoleno rozšíření do webových prohlížečů, protože splňuje kladené nároky na jednoduchost instalace a umožňuje transparentně integrovat kód přímo s webovým rozhraním systému InSIS. Webová rozšíření jsou častým nástrojem pro implementaci změnu chování webových aplikací bez možnosti přímého zásahu do kódu aplikace. 
 
-\begin{enumerate}
-    \item Návrh a popisem implementovaných funkcionalit,
-    \item Proces výběru technologií použitých pro implementaci,
-    \item Implementace podpůrného webového serveru
-    \item Implementace rozšíření do webových prohlížečů
-    \item Evaluace zpětné vazby od ostatních studentů, kteří webové rozšíření používají
-\end{enumerate}
+Cílem práce je návrh a následná implementace rozšíření do webových prohlížečů společně s podpůrným serverem pro ukládání dat uživatelů. Dalším cílem je srovnání dostupných technologií pro obě části softwarového řešení. Posledním cílem je vyhodnocení zpětné vazby od uživatelů webového rozšíření pro ověření stanovených hypotéz.
 
-Práce se zaměřuje především na praktickou problematiku spojenou s~implementací softwarového řešení s~výjimkou první a poslední části, které jsou zaměřené více teoreticky.
+\subsection*{Struktura práce}
 
-Výsledkem práce je webové rozšíření pro prohlížeče založené na technologii Google Chrome a Mozilla Firefox, publikované na internetové obchody Google Play a Firefox Addons. 
+První kapitola práce se zabývá návrhem přidaných funkcionalit a představuje jejich význam v kontextu jednotlivých modulů informačního systému InSIS.
+
+Druhá kapitola představuje některé z technologií dostupných pro implementaci webového rozšíření a proces výběru technologií pro obě části softwarového řešení, tedy technologii použitou pro implementaci samotného rozšíření do webových prohlížečů a technologii použitou pro implementaci podpůrného webového serveru, který slouží jako infrastruktura pro ukládání uživatelských dat a rozesílání emailových upozornění.
+
+Třetí kapitola se zaměřuje na implementační detaily podpůrného webového serveru. Kapitola popisuje strukturu a konfiguraci projektu, datovou a prezentační vrstvu aplikace včetně návrhu databáze a doménových objektů. Dále popisuje strojové testování řešení, společně s výběrem způsobu distribuce a hostingu.  
+
+Čtvrtá kapitola se zaměřuje na implementaci rozšíření do webových prohlížečů. Tato kapitola představuje dílčí části tvořící balíček rozšíření, vysvětluje technické omezení běhového prostředí prohlížečů a popisuje některé z řešených problematik. V poslední části se kapitola zaměřuje na sestavování a distribuci rozšíření prostřednictvím internetových obchodů Google Web Store a Firefox Addons.
+
+Poslední kapitola se zabývá evaluací zpětné vazby od ostatních studentů VŠE. Jsou zde stanoveny hypotézy, které jsou zodpovězeny na základě výsledků dotazníkového šetření. Kapitola obsahuje návrh dotazníku, představení získaných dat a výsledky šetření. 
+
+% \begin{enumerate}
+%     \item Návrh a popisem implementovaných funkcionalit,
+%     \item Proces výběru technologií použitých pro implementaci,
+%     \item Implementace podpůrného webového serveru
+%     \item Implementace rozšíření do webových prohlížečů
+%     \item Evaluace zpětné vazby od ostatních studentů, kteří webové rozšíření používají
+% \end{enumerate}
+
+% Práce se zaměřuje především na praktickou problematiku spojenou s~implementací softwarového řešení s~výjimkou první a poslední části, které jsou zaměřené více teoreticky.
+
