@@ -1,4 +1,4 @@
-\chapter{Volba technologií a návrh architektury}
+\chapter{Volba technologií a návrh architektury}\label{chap:volba-technologii}
 
 Tato kapitola stručně představuje a srovnává některé z~dostupných technologií, které je možné použít pro implementaci obou částí softwarového řešení. 
 
@@ -139,7 +139,7 @@ Tyto požadavky splňuje množství aplikačních rámců napříč širokou šk
 
 Spring Framework a jeho nadstavba Spring Boot je aplikační rámec vyvinutý společností Pivotal v~roce 2004 \cite{risberg_spring_2004}, která je od roku 2019 součást společnosti VMware \cite{vmware_pivotal_acquisition_2019}. Jedná se o~open source aplikační rámec, který staví na technologii programovacího jazyka Java a je proto možné pro vývoj aplikací v~tomto aplikačním rámci použít libovolný programovací jazyk, který je kompatibilní s~běhovým prostředím Java Virtual Machine. Oficiálně podporovanými programovacími jazyky jsou Java, Kotlin a Groovy \cite{spring_framework}.
 
-Spring nabízí řadu modulů, které je možné využít při programování aplikací. Tyto moduly jsou dostupné jako samostatné balíčky a je možné je specifikovat v~rámci závislostí v~nástroji pro sestavování balíčků jako je například Maven nebo Gradle. Tato modularita nabízí flexibilitu při vývoji aplikací, kdy nedochází ke stahování, kompilaci a exportu softwarových knihoven, které nejsou pro konkrétní aplikaci potřeba. Příkladem může být modul \code{spring-data}, který poskytuje sdílenou logiku a abstrakce pro načítání dat z~relačních a NoSQL databází. Pokud aplikace nepotřebuje ukládat data v~databázi a místo toho data získává například z~externího REAST API, není potřeba tento modul do aplikace přidávat, čímž dojde k~redukci komplexity, času sestavení a spuštění aplikace a velikosti výsledného sestaveného balíčku \cite{spring_boot}.
+Spring nabízí řadu modulů, které je možné využít při programování aplikací. Tyto moduly jsou dostupné jako samostatné balíčky a je možné je specifikovat v~rámci závislostí v~nástroji pro sestavování balíčků jako je například Maven nebo Gradle. Tato modularita nabízí flexibilitu při vývoji aplikací, kdy nedochází ke stahování, kompilaci a exportu softwarových knihoven, které nejsou pro konkrétní aplikaci potřeba. Příkladem může být modul \code{spring-data}, který poskytuje sdílenou logiku a abstrakce pro načítání dat z~relačních a NoSQL databází. Pokud aplikace nepotřebuje ukládat data v~databázi a místo toho data získává například z~externího REST API, není potřeba tento modul do aplikace přidávat, čímž dojde k~redukci komplexity, času sestavení a spuštění aplikace a velikosti výsledného sestaveného balíčku \cite{spring_boot}.
 
 Pro správu těchto modulů a vytváření nových projektů s~využitím aplikačního rámce Spring je možné použít webový nástroj Spring Initalizr, který je dostupný na URL adrese \url{https://start.spring.io} \cite{spring_boot}.
 
