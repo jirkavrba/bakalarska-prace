@@ -1,6 +1,6 @@
 \chapter{Volba technologií a návrh architektury}
 
-Tato kapitola stručně představuje a srovnává některé z dostupných technologií, které je možné použít pro implementaci obou částí softwarového řešení. 
+Tato kapitola stručně představuje a srovnává některé z~dostupných technologií, které je možné použít pro implementaci obou částí softwarového řešení. 
 
 \section{Volba technologie pro webové rozšíření}
 
@@ -17,7 +17,7 @@ Pro implementaci rozšíření do webového prohlížeče se naskytuje několik 
 \begin{itemize}
     \item JavaScript
     \item TypeScript
-    \item Kotlin s nadstavbou Kotlin/JS
+    \item Kotlin s~nadstavbou Kotlin/JS
     \item Ostatní programovací jazyky s~podporou transpilace do jazyka JavaScript
 \end{itemize}
 
@@ -109,7 +109,7 @@ Existuje celá řada dalších programovacích jazyků, které podporují transp
 
 \subsection{Zvolená technologie}
 
-Po zvážení výhod a nevýhod zmíněných jazyků byl pro implementaci rozšíření zvolen programovací jazyk TypeScript, protože nabízí nejlepší kompromis mezi rychlostí vývoje a zárukami ohledně výsledného kódu. Sestavování transpilovaného výstupu v~jazyce JavaScript je v~případě využití programovacího jazyka TypeScript přímočaré a kompilátor pro překlad TypeScript kódu je možné spouštět velice často a kompilace menšího až středně velkého projektu se pohybuje v nižších jednotkách sekund. 
+Po zvážení výhod a nevýhod zmíněných jazyků byl pro implementaci rozšíření zvolen programovací jazyk TypeScript, protože nabízí nejlepší kompromis mezi rychlostí vývoje a zárukami ohledně výsledného kódu. Sestavování transpilovaného výstupu v~jazyce JavaScript je v~případě využití programovacího jazyka TypeScript přímočaré a kompilátor pro překlad TypeScript kódu je možné spouštět velice často a kompilace menšího až středně velkého projektu se pohybuje v~nižších jednotkách sekund. 
 
 Rychlost transpilace se pohybuje u~menších projektů maximálně v~jednotkách sekund, častěji spíše v~desítkách až stovkách milisekund. V~porovnání například se zmíněnou technologií Kotlin/JS jde o~výraznou redukci kompilačního času, protože transpilace z~jazyka Kotlin do jazyka JavaScript přes nástroj Gradle může trvat až několik minut, což se může velice negativně projevit na produktivitě při vývoji rozšíření.
 
