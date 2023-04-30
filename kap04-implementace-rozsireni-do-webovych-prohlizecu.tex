@@ -1,4 +1,4 @@
-\chapter{Implementace rozšíření do webových prohlížečů}
+\chapter{Implementace rozšíření do~webových prohlížečů}
 
 Zatímco podpůrný webový server zajišťuje potřebnou infrastrukturu pro ukládání uživatelských dat, správu uživatelských účtů a rozesílání emailů, klíčovou částí projektu je rozšíření do webových prohlížečů, které zajišťuje integraci přidaných funkcionalit do webového rozhraní školního informačního systému InSIS.
 
@@ -265,7 +265,7 @@ const disabled = feature.includes(":") && !isFeatureEnabled(
 Proměnná \code{feature} obsahuje textový řetězec s~klíčem přepínače a proměnná \code{preferences} obsahuje načtené preference uživatele. V~prvním kroce proběhne kontrola, že klíč obsahuje znak dvojtečky a pokud ano, klíč se rozdělí na pole textových řetězců podle dvojtečky. Tedy například u~klíče \code{"timetable-preview:hide-collisions"} by došlo k~rozdělení na pole \code{["timetable-preview", "hide-collisions"]}. Z~tohoto pole se pak vezme první prvek, v~tomto případě \code{"timetable-preview"} a proběhne kontrola, jestli je přepínač s~tímto klíčem přepnutý do vypnutého stavu.
 
 
-Ukládání a načítání uložených uživatelských preferencí je implementováno prostřednictvím \code|browser.storage|, které bylo zmíněno v~předchozích kapitolách. Při prvním renderu uživatelských preferencí dojde k~načtení uložených hodnot pomocí volání funkce \url{browser.storage.local.get("preferences")}. Pokud nejsou uložené preference nalezeny, je vrácen prázdný objekt, který v~důsledku chování implementace funkce \code{isFeatureEnabled} popsané ve výpise \ref{code:is-feature-enabled} způsobí, že všechny přepínače se nachází v~zapnutém stavu. 
+Ukládání a načítání uložených uživatelských preferencí je implementováno prostřednictvím \code{browser.storage}, které bylo zmíněno v~předchozích kapitolách. Při prvním renderu uživatelských preferencí dojde k~načtení uložených hodnot pomocí volání funkce \url{browser.storage.local.get("preferences")}. Pokud nejsou uložené preference nalezeny, je vrácen prázdný objekt, který v~důsledku chování implementace funkce \code{isFeatureEnabled} popsané ve výpise \ref{code:is-feature-enabled} způsobí, že všechny přepínače se nachází v~zapnutém stavu. 
 
 \begin{lstlisting}[label={code:is-feature-enabled}, caption={Definice funkce \code{isFeatureEnabled} (vlastní zpracování).}]
 export const isFeatureEnabled = (preferences: Preferences, feature: string): boolean => {
@@ -316,12 +316,14 @@ Definice aliasů viz výpis \ref{code:package-json-webpack-alias} umožňují se
 
 Pro zjednodušení a automatizaci sestavování rozšíření do balíčku publikovatelného na zmíněné internetové obchody je využíváno GitLab CI/CD pipeline, která automaticky sestavuje balíčky a vytváří takzvané releases na platformě GitLab, ze kterých je možné tyto sestavené balíčky přímo publikovat na zmíněné internetové obchody s~rozšířeními. 
 
-Zdrojový kód této CI pipeline je možné vidět ve výpise \ref{code:gitlab-ci-pipeline} a snímek obrazovky z~platformy GitLab s~výsledkem běhu je možné vidět na obrázku \ref{fig:extension-gitlab-ci}.
+Zdrojový kód této CI pipeline je možné vidět ve výpise \ref{code:gitlab-ci-pipeline} a snímek obrazovky z~platformy GitLab s~výsledkem běhu je možné vidět na obrázku \ref{fig:extension-gitlab-ci}. 
 
 \begin{figure}[htbp!]\centering
     \includegraphics[width=\textwidth]{img/extension-gitlab-ci-pipeline-overview.png}
     \caption{GitLab CI Pipeline (vlastní zpracování)}
     \label{fig:extension-gitlab-ci}
 \end{figure}
+
+V horní části obrázku \ref{fig:extension-gitlab-ci} se nachází informace o git commitu, pro který se pipeline spouští a ve spodní části obrázku je vidět graf závislostí jednotlivých úkonů, které se mají v rámci pipeline spustit.
 
 Aktuální verze kompletního zdrojového kódu včetně historie změn je dostupná v~podobě repozitáře na platformě GitLab na adrese \url{https://gitlab.com/vse-plus/extension}.

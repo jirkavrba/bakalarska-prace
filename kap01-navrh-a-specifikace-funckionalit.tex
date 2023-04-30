@@ -65,7 +65,7 @@ anonymous --> (Přihlášení se do rozšíření pomocí kódu)
 
 \section{Zobrazení náhledu rozvrhu při registracích předmětů}
 
-První funkcionalitou, kterou webové rozšíření do informačního systému InSIS přidává, je zobrazení náhledu rozvrhu a detekce kolizí se zapsanými hodinami při registraci rozvrhových akcí. V~uživatelském rozhraní pro registraci rozvrhových akcí nejsou v~informačním systému InSIS zobrazené již zaregistrované rozvrhové akce a je tedy velice obtížné si efektivně sestavovat rozvrh. Většina dotazovaných studentů tento nedostatek řeší tak, že si registrují předměty za pomoci kombinace 2 prohlížečových oken, kdy v~jednom okně prohlížeče mají otevřený rozvrh a v~druhém okně prohlížeče mají otevřené registrace předmětů. Kolize studenti hledají manuálně, často až pomocí vizuální kontroly po registraci rozvrhové akce.
+První funkcionalitou, kterou webové rozšíření do informačního systému InSIS přidává, je zobrazení náhledu rozvrhu a detekce kolizí se zapsanými hodinami při registraci rozvrhových akcí. V~uživatelském rozhraní pro registraci rozvrhových akcí nejsou v~informačním systému InSIS zobrazené již zaregistrované rozvrhové akce a je tedy velice obtížné si efektivně sestavovat rozvrh. Většina dotazovaných studentů tento nedostatek řeší tak, že si registrují předměty za pomoci kombinace dvou oken prohlížeče, kdy v~jednom okně mají otevřený rozvrh a v~druhém okně mají otevřené registrace předmětů. Kolize studenti hledají manuálně, často až pomocí vizuální kontroly po registraci rozvrhové akce.
 
 Efektivitu uživatelů systému InSIS při registraci rozvrhových akcí je možné zlepšit zobrazením náhledu rozvrhu s~již zaregistrovanými rozvrhovými akcemi vedle seznamu dostupných rozvrhových akcí pro předmět, který si uživatel aktuálně zapisuje. Další zlepšení efektivity pak poskytuje automatická detekce kolizí v~rozvrhu a vizuální odlišení hodin s~kolizí ve výběru dostupných rozvrhových akcí. Toto odlišení může být implementováno například jako zvýšení průhlednosti řádků v~tabulce. 
 
@@ -176,7 +176,7 @@ user ---> (Odebrání poznámky v~rozvrhu)
 @enduml
 }
 
-\subsection{Změnený vzhled rozvrhu}
+\subsection{Změněný vzhled rozvrhu}
 
 Jelikož v~rámci implementace bude docházet k~sestavování nové DOM stromové reprezentace pro zobrazení komponent tvořících zobrazení rozvrhu, naskytuje se příležitost vylepšit grafickou stránku rozvrhu. 
 
@@ -184,7 +184,7 @@ Pro vylepšenou verzi rozvrhu byla zvolena nová paleta barev, bylo změněno ro
 
 \subsection{Přepínání mezi týdny a zpracování rozvrhových výjimek}
 
-Klíčovou změnou ve vylepšené verzi rozvrhu je práce s~jednotlivými výukovými týdny. To zahrnuje zobrazení aktuálního týdne v~záhlaví rozvrhu společně s~uživatelským rozhraním pro přepínání mezi týdny. Dále oproti původní implementaci rozvrhu probíhá navíc zpracování výjimek v~rozvrhových akcích, které jsou tvořeny zejména volnými dny, ve kterých výuka odpadá a dny, ve kterých probíhají blokových akcí. Pokud v~konkrétním týdnu rozvrhová akce neprobíhá, je rozvrhová akce v~rozvrhu graficky odlišena. Toto grafické odlišení poskytuje uživateli zrychlenou zpětnou vazbu oproti původní číselné poznámce pod rozvrhem, kterou je možné snadno přehlédnout.
+Klíčovou změnou ve vylepšené verzi rozvrhu je práce s~jednotlivými výukovými týdny. To zahrnuje zobrazení aktuálního týdne v~záhlaví rozvrhu společně s~uživatelským rozhraním pro přepínání mezi týdny. Dále oproti původní implementaci rozvrhu probíhá navíc zpracování výjimek v~rozvrhových akcích, které jsou tvořeny zejména volnými dny, ve kterých výuka odpadá a dny, ve kterých probíhají blokové akce. Pokud v~konkrétním týdnu rozvrhová akce neprobíhá, je rozvrhová akce v~rozvrhu graficky odlišena. Toto grafické odlišení poskytuje uživateli zrychlenou zpětnou vazbu oproti původní číselné poznámce pod rozvrhem, kterou je možné snadno přehlédnout.
 
 Během zpracování poznámek v~rozvrhu dochází k~detekci začátku a konce výukového období, které je následně v~uživatelském rozhraní pro přepínání týdnů využito pro zobrazení pořadového čísla týdne, a jestli je tento týden součástí výukového období.
 

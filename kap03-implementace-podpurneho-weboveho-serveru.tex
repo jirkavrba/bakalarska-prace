@@ -49,10 +49,10 @@ Návrhu databázového schématu předcházelo vymezení jednotlivých entit, kt
 V~databázovém schématu je možné vymezit celkem 4 entity, se kterými se v~rámci aplikace pracuje.
 
 \begin{itemize}
-    \item Uživatelský účet - tabulka \code{accounts},
-    \item připomenutí odevzdáváren - tabulka \code{submission\_reminders},
-    \item poznámky v~kalendáři - tabulka \code{timetable\_events},
-    \item oznámení - tabulka \code{notifications}.
+    \item Uživatelský účet -- tabulka \code{accounts},
+    \item připomenutí odevzdáváren -- tabulka \code{submission\_reminders},
+    \item poznámky v~kalendáři -- tabulka \code{timetable\_events},
+    \item oznámení -- tabulka \code{notifications}.
 \end{itemize}
 
 Na obrázku \ref{fig:db-schema} je zobrazeno vyhotovené databázové schéma včetně relací mezi tabulkami, které reprezenutují definované entity. Kromě tabulek zobrazených v~rámci schématu obsahuje databáze ještě další 2 tabulky, jednu s~názvem \code{liquibase\_changelog} a druhou s~názvem \code{liquibase\_changelog\_lock}. Tyto 2 tabulky jsou spravované migračním nástrojem Liquibase, jehož využití je dále podrobněji popsáno v~kapitole \ref{chap:liquibase}.
@@ -247,7 +247,7 @@ Pro distribuci aplikace byl z~důvodu přenositelnosti řešení zvolen nástroj
 
 Hlavním rozdílem mezi platformami byl způsob stanovení ceny. U~flexibilních cloudových poskytovatelů jako je Amazon Web Service a řešení ESC (Elastic Container Service) nebo Google Cloud Run je cena počítána dynamicky podle míry využití poskytovaných zdrojů, které jsou alokovány dynamicky. U~ostatních platforem je model výpočtu výsledné ceny více přímočarý, protože se jedná o~fixní celkovou částku za předem definovanou statickou výpočetní kapacitu.
 
-Po odhadu potřebných výpočetních zdrojů, které byly stanoveny pomocí průměru 5 měření metrik nástroje Micrometer byla odhadnuta cena provozu u~jednotlivých platforem. Po vyhodnocení vyšla jako nejlepší varianta, která splňovala všechny kladené požadavky za nejmenší cenu platforma Digital Ocean Droplets, která umožňuje hosting docker kontejneru s~aplikací s~1 vCPU a 512 mb RAM za 4 americké dolary měsíčně. Digital Ocean zároveň poskytuje slevu pro studenty v~podobě kreditů, které po uplatnění sníží výsledné měsíční cenu za provoz pod 1 americký dolar.  
+Po odhadu potřebných výpočetních zdrojů, které byly stanoveny pomocí průměru 5 měření metrik nástroje Micrometer byla odhadnuta cena provozu u~jednotlivých platforem. Po vyhodnocení vyšla jako nejlepší varianta, která splňovala všechny kladené požadavky za nejmenší cenu platforma Digital Ocean Droplets, která umožňuje hosting docker kontejneru s~aplikací s~jedním vCPU a 512 MB RAM za 4 USD měsíčně. Digital Ocean zároveň poskytuje slevu pro studenty v~podobě kreditů, které po uplatnění sníží výsledné měsíční cenu za provoz pod 1 americký dolar.  
 
 
 \subsection{Využítí technologie Docker}\label{sec:docker}
@@ -264,4 +264,4 @@ Pro sestavení docker image obsahující zdrojové kódy a běhové prostředí 
 
 \subsection{Zdrojové kódy a historie změn}
 
-Aktuální verze zdrojových kódu a historie změn pro podpůrný webový server je dostupná jako repozitář na platformě GitLab, který je k~dispozici pod url \url{https://gitlab.com/vse-plus/api}.
+Aktuální verze zdrojových kódu a historie změn pro podpůrný webový server je dostupná jako repozitář na platformě GitLab, který je k~dispozici pod URL \url{https://gitlab.com/vse-plus/api}.
