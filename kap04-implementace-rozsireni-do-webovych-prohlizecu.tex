@@ -60,6 +60,7 @@ Výpis \ref{code:preferences-content-script} zachycuje část kódu, ve které s
 
 Samotná funkce \code{isFeatureEnabled} pak pouze kontroluje předaný parametr, kde zjistí, jestli je jeho hodnota v~rámci uživatelských preferencí nastavena na pravdivou hodnotu.
 
+\newpage
 \begin{lstlisting}[label={code:is-feature-enabled}, caption={Definice funkce \code{isFeatureEnabled} (vlastní zpracování)}]
 export const isFeatureEnabled = 
     (preferences: Preferences, feature: string): boolean => {
@@ -131,7 +132,7 @@ Jelikož školní informační systém InSIS nemá na rozdíl od informačních 
 
 Prvním krokem pro extrakci registrovaných hodin je asynchronní načtení stránky s~registracemi na pozadí pomocí technologie AJAX. To je realizované v~rámci pomocné funkce \code{loadCurrentTimetable}. Implementace zmíněné pomocné funkce je možné vidět ve výpise \ref{code:load-current-timetable}.
 
-\begin{lstlisting}[label={code:load-current-timetable}, caption = {Implementace funkce \code{loadCurrentTimetable} (vlastní zpracování)}]
+    \begin{lstlisting}[label={code:load-current-timetable}, caption = {Implementace funkce \code{loadCurrentTimetable} (vlastní zpracování)}]
 export const loadCurrentTimetable = async () => {
     const url = "https://insis.vse.cz/auth/student/registrace.pl?lang=cz";
     const source = await fetch(url)
@@ -269,12 +270,12 @@ Ukládání a načítání uložených uživatelských preferencí je implemento
 
 \begin{lstlisting}[label={code:is-feature-enabled}, caption={Definice funkce \code{isFeatureEnabled} (vlastní zpracování).}]
 export const isFeatureEnabled = (preferences: Preferences, feature: string): boolean => {
-    // Fallback to all features enabled by default for discoverability
-    if (!preferences || !Object.keys(preferences.features).includes(feature)) {
-        return true;
-    }
+// Fallback to all features enabled by default for discoverability
+if (!preferences || !Object.keys(preferences.features).includes(feature)) {
+    return true;
+}
 
-    return preferences.features[feature];
+return preferences.features[feature];
 };
 \end{lstlisting}
 
@@ -324,6 +325,6 @@ Zdrojový kód této CI pipeline je možné vidět ve výpise \ref{code:gitlab-c
     \label{fig:extension-gitlab-ci}
 \end{figure}
 
-V~horní části obrázku \ref{fig:extension-gitlab-ci} se nachází informace o~git commitu, pro který se pipeline spouští a ve spodní části obrázku je vidět graf závislostí jednotlivých úkonů, které se mají v~rámci pipeline spustit.
+V~horní části obrázku \ref{fig:extension-gitlab-ci} se nachází informace o~git commitu, pro který se pipeline spouští, a ve spodní části obrázku je vidět graf závislostí jednotlivých úkonů, které se mají v~rámci pipeline spustit.
 
 Aktuální verze kompletního zdrojového kódu včetně historie změn je dostupná v~podobě repozitáře na platformě GitLab na adrese \url{https://gitlab.com/vse-plus/extension}.

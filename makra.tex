@@ -79,7 +79,6 @@
 
 \usepackage{hyperref}
 \usepackage{float}
-\usepackage[section]{placeins}
 
 \usepackage{tocloft}
 \setlength\cftparskip{0pt}
@@ -104,9 +103,9 @@
 
 % zakaz vdov a sirotku - jednoradkovych pocatku ci koncu odstavcu na prechodu mezi strankami
 % Prohibition of widows and orphans - single-line beginning and end of paragraph at the transition between pages
-\clubpenalty=1000
-\widowpenalty=1000
-\displaywidowpenalty=1000
+% \clubpenalty=1000
+% \widowpenalty=1000
+% \displaywidowpenalty=1000
 
 % nastaveni radkovani
 % setting of line spacing
@@ -279,3 +278,5 @@
   {\usebibmacro{postnote}}
 
 \newcommand{\customcite}[2]{\hyperlink{cite.\therefsection @#1}{#2 \protect\NoHyper\cite*{#1}\protect\endNoHyper}}
+
+\newcommand{\quot}[1]{``#1''}
