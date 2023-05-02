@@ -49,6 +49,7 @@ format("2.134"); // Způsobí chybu až při spuštění programu
 // Uncaught TypeError: price.toFixed is not a function
 \end{lstlisting}
 
+\clearpage
 \begin{lstlisting}[label={code:typescript-good}, caption={Ukázka kódu s~neplatným typem parametru v~jazyce TypeScript (vlastní zpracování)}]
 // TypeScript
 function format(price: number): string {
@@ -141,7 +142,7 @@ Spring Framework a jeho nadstavba Spring Boot je aplikační rámec vyvinutý sp
 
 Spring nabízí řadu modulů, které je možné využít při programování aplikací. Tyto moduly jsou dostupné jako samostatné balíčky a je možné je specifikovat v~rámci závislostí v~nástroji pro sestavování balíčků jako je například Maven nebo Gradle. Tato modularita nabízí flexibilitu při vývoji aplikací, kdy nedochází ke stahování, kompilaci a exportu softwarových knihoven, které nejsou pro konkrétní aplikaci potřeba. Příkladem může být modul \code{spring-data}, který poskytuje sdílenou logiku a abstrakce pro načítání dat z~relačních a NoSQL databází. Pokud aplikace nepotřebuje ukládat data v~databázi a místo toho data získává například z~externího REST API, není potřeba tento modul do aplikace přidávat, čímž dojde k~redukci komplexity, času sestavení a spuštění aplikace a velikosti výsledného sestaveného balíčku \cite{spring_boot}.
 
-Pro správu těchto modulů a vytváření nových projektů s~využitím aplikačního rámce Spring je možné použít webový nástroj Spring Initalizr, který je dostupný na URL adrese \url{https://start.spring.io} \cite{spring_boot}.
+Pro správu těchto modulů a vytváření nových projektů s~využitím aplikačního rámce Spring je možné použít webový nástroj Spring Initalizr, který je dostupný na následující URL adrese \url{https://start.spring.io} \cite{spring_boot}.
 
 \begin{figure}[htbp!]\centering
 \includegraphics[width=\textwidth]{img/sprint-initializr.png}
