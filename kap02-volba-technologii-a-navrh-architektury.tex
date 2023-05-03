@@ -104,7 +104,7 @@ Hlavní nevýhodou použití jazyka Kotlin je náročný proces kompilace, kter�
 
 \subsubsection{Ostatní programovací jazyky s~podporou transpilace do jazyka JavaScript}
 
-Existuje celá řada dalších programovacích jazyků, které podporují transpilaci do jazyka JavaScript. Jedná se například programovací jazyk Scala, Clojure, PureScript, CofeeScript, Dart, ReasonML nebo Haxe.
+Existuje řada dalších programovacích jazyků, které podporují transpilaci do jazyka JavaScript. Jedná se například programovací jazyk Scala, Clojure, PureScript, CofeeScript, Dart, ReasonML nebo Haxe.
 
 Žádný z~těchto programovacích jazyků avšak nepřináší v~kontextu webových rozšíření zásadní výhody oproti již představeným programovacích jazykům a jedná se často pouze o~preferenci syntaxe daného jazyka.
 
@@ -138,7 +138,7 @@ Tyto požadavky splňuje množství aplikačních rámců napříč širokou šk
 
 % https://spring.io/
 
-Spring Framework a jeho nadstavba Spring Boot je aplikační rámec vyvinutý společností Pivotal v~roce 2004 \cite{risberg_spring_2004}, která je od roku 2019 součást společnosti VMware \cite{vmware_pivotal_acquisition_2019}. Jedná se o~open source aplikační rámec, který staví na technologii programovacího jazyka Java a je proto možné pro vývoj aplikací v~tomto aplikačním rámci použít libovolný programovací jazyk, který je kompatibilní s~běhovým prostředím Java Virtual Machine. Oficiálně podporovanými programovacími jazyky jsou Java, Kotlin a Groovy \cite{spring_framework}.
+Spring Framework a jeho nadstavba Spring Boot je aplikační rámec vyvinutý společností Pivotal v~roce 2004 \cite{risberg_spring_2004}. Společnost Pivotal je od roku 2019 součást společnosti VMware \cite{vmware_pivotal_acquisition_2019}. Jedná se o~open source aplikační rámec, který staví na technologii programovacího jazyka Java a je proto možné pro vývoj aplikací v~tomto aplikačním rámci použít libovolný programovací jazyk, který je kompatibilní s~běhovým prostředím Java Virtual Machine. Oficiálně podporovanými programovacími jazyky jsou Java, Kotlin a Groovy \cite{spring_framework}.
 
 Spring nabízí řadu modulů, které je možné využít při programování aplikací. Tyto moduly jsou dostupné jako samostatné balíčky a je možné je specifikovat v~rámci závislostí v~nástroji pro sestavování balíčků jako je například Maven nebo Gradle. Tato modularita nabízí flexibilitu při vývoji aplikací, kdy nedochází ke stahování, kompilaci a exportu softwarových knihoven, které nejsou pro konkrétní aplikaci potřeba. Příkladem může být modul \code{spring-data}, který poskytuje sdílenou logiku a abstrakce pro načítání dat z~relačních a NoSQL databází. Pokud aplikace nepotřebuje ukládat data v~databázi a místo toho data získává například z~externího REST API, není potřeba tento modul do aplikace přidávat, čímž dojde k~redukci komplexity, času sestavení a spuštění aplikace a velikosti výsledného sestaveného balíčku \cite{spring_boot}.
 
