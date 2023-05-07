@@ -38,7 +38,7 @@ const preferences: Preferences = items["preferences"] ?? {
     features: {}
 };
 
-  const notificationsTimestamp = new Date(items["notificationsTimestamp"] || 0);
+const notificationsTimestamp = new Date(items["notificationsTimestamp"] || 0);
 \end{lstlisting}
 
  Část kódu ve výpise \ref{code:content-script-data-loading} načítá z~paměti prohlížeče uložené informace o~přihlášení uživatelské, uživatelské preference a časovou značku posledního zobrazeného oznámení. Tyto informace jsou uloženy v~interním úložišti prohlížeče a přístup k~těmto datům rozšíření je omezený pouze na součásti rozšíření definované v~manifestu.
