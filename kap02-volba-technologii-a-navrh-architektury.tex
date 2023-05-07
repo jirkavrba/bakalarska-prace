@@ -98,13 +98,13 @@ external class Node(val x: Int)
 
 Kotlin/JS přináší několik výhod. První, subjektivní výhodou pro tento konkrétní projekt je, že s~tímto programovacím jazykem má autor již dlouholetou zkušenost. Mezi další, již více objektivní, výhody patří mimo jiné typový systém jazyka Kotlin, který přináší zlepšení oproti typovému systému, který implementuje programovací jazyk TypeScript. Příkladem zlepšení může být rozlišení datových typů pro celočíselná a desetinná čísla v~různých bitových velikostech. Další z~výhod je rozsáhlejší standardní knihovna programovacího jazyka Kotlin, kterou je možné přímo v~rámci programu využívat. 
 
-Potencionální výhodou by v~případě, že by tento programovací jazyk byl zvolen pro implementaci webového rozšíření, byly již existující vazby a typové definice pro populární knihovnu React.js, které spravuje přímo firma JetBrains s.r.o., což zaručuje kvalitu typových definic a lepší komerční i nekomerční podporu než u~knihoven, které vyvíjí jeden člověk,  a to navíc často ve svém volném čase.
+Potencionální výhodou by v~případě, že by tento programovací jazyk byl zvolen pro implementaci webového rozšíření, jsou již existující vazby a typové definice pro populární knihovnu React.js, které spravuje přímo firma JetBrains s.r.o., což zaručuje kvalitu typových definic a lepší komerční i nekomerční podporu než u~knihoven, které vyvíjí jeden člověk,  a to navíc často ve svém volném čase.
 
 Hlavní nevýhodou použití jazyka Kotlin je náročný proces kompilace, který vyžaduje celou řadu externích nástrojů. Další nevýhodou tohoto programovacího jazyka je, že v~době psaní této práce neexistuje typová definice pro velice obsáhlé aplikační rozhraní webových prohlížečů, která by musela být nadefinována v~rámci projektu, což by bylo velice složité a časově náročné, protože prohlížeče pracují s~rozšířenou sadou objektů oproti běhovému prostředí pro aplikace webových stránek, pro které je Kotlin/JS primárně určen.
 
 \subsubsection{Ostatní programovací jazyky s~podporou transpilace do jazyka JavaScript}
 
-Existuje řada dalších programovacích jazyků, které podporují transpilaci do jazyka JavaScript. Jedná se například programovací jazyk Scala, Clojure, PureScript, CofeeScript, Dart, ReasonML nebo Haxe.
+Existuje řada dalších programovacích jazyků, které podporují transpilaci do jazyka JavaScript. Jedná se například o programovací jazyky Scala, Clojure, PureScript, CofeeScript, Dart, ReasonML nebo Haxe.
 
 Žádný z~těchto programovacích jazyků avšak nepřináší v~kontextu webových rozšíření zásadní výhody oproti již představeným programovacích jazykům a jedná se často pouze o~preferenci syntaxe daného jazyka.
 
@@ -116,7 +116,7 @@ Rychlost transpilace se pohybuje u~menších projektů maximálně v~jednotkách
 
 \section{Volba technologie pro podpůrný webový server}
 
-Pro podpůrný webový server se nabízí daleko širší spektrum technologií, ze kterých je možné pro implementaci programu vybírat. Tato diverzita je dána mimo jiné tím, že na podpůrný webový serveru není kladeno omezení na kompatibilitu s~konkrétním běhovým prostředím, jako je tomu u~rozšíření do webových prohlížečů. 
+Pro podpůrný webový server se nabízí daleko širší spektrum technologií, ze kterých je možné pro implementaci programu vybírat. Tato diverzita je dána mimo jiné tím, že na podpůrný webový server není kladeno omezení na kompatibilitu s~konkrétním běhovým prostředím, jako je tomu u~rozšíření do webových prohlížečů. 
 
 \subsection{Požadavky na zvolenou technologii}\label{sec:pozadavky-na-zvolenou-technologii}
 
@@ -124,7 +124,7 @@ Vybraný programovací jazyk a webový aplikační rámec musí podporovat násl
 
 \begin{itemize}
     \item Přijímání a odpovídání na přijaté HTTP požadavky,
-    \item serializace a parsování formát JSON pro přenos dat,
+    \item serializace a parsování formátu JSON pro přenos dat,
     \item komunikace s~databází, ve které jsou uložená data uživatelů,
     \item podpora pro autentikaci a autorizaci uživatelů s~využitím HTTP hlaviček,
     \item odesílání emailů pomocí vestavěného nebo externího SMTP serveru.

@@ -41,7 +41,7 @@ const preferences: Preferences = items["preferences"] ?? {
 const notificationsTimestamp = new Date(items["notificationsTimestamp"] || 0);
 \end{lstlisting}
 
- Část kódu ve výpise \ref{code:content-script-data-loading} načítá z~paměti prohlížeče uložené informace o~přihlášení uživatelské, uživatelské preference a časovou značku posledního zobrazeného oznámení. Tyto informace jsou uloženy v~interním úložišti prohlížeče a přístup k~těmto datům rozšíření je omezený pouze na součásti rozšíření definované v~manifestu.
+Část kódu ve výpise \ref{code:content-script-data-loading} načítá z~paměti prohlížeče uložené informace o~přihlášení uživatele, uživatelské preference a časovou značku posledního zobrazeného oznámení. Tyto informace jsou uloženy v~interním úložišti prohlížeče a přístup k~těmto datům rozšíření je omezený pouze na součásti rozšíření definované v~manifestu.
 V~dalších částech kódu se pak načtené informace využívají pro rozhodnutí, jestli se mají přidané funkcionality spustit.
 
 \begin{lstlisting}[
@@ -242,11 +242,11 @@ const names: Record<string, string> = {
     "submission-reminders": "Připomenutí odevzdáváren",
     "timetable-preview": "Náhled rozvrhu při registracích",
     "timetable-preview:hide-collisions":
-        "Schovat v~registracích hodiny s~kolizí"
+        "Schovat v registracích hodiny s kolizí"
 }
 \end{lstlisting}
 
-Jak je vidět u~posledního definovaného přepínače, pokud se jedná o~přepínač závislý na jiném přepínači, v~tomto případě konkrétně o~přepínač \url{timetable-preview:hide-collisions}, který je závislý na přepínači \url{timetable-preview}, je klíč přepínače oddělen dvojtečkou, což umožňuje validaci, že funkcionalita, na které je přepínač závislý je zapnutá. V~případě, že daná funkcionalita je uživatelem vypnutá, je zablokována možnost měnit závislé přepínače. Tuto situaci zachycuje obrázek \ref{fig:zavisle-prepinace}, kde je možné vidět zablokování změny přepínače "Schovat v~registracích hodiny s~kolizí", protože přepínač "Náhled rozvrhu při registracích", na kterém je druhý přepínač závislý, se nachází ve vypnutém stavu.
+Jak je vidět u~posledního definovaného přepínače, pokud se jedná o~přepínač závislý na jiném přepínači, v~tomto případě konkrétně o~přepínač \url{timetable-preview:hide-collisions}, který je závislý na přepínači \url{timetable-preview}, je klíč přepínače oddělen dvojtečkou, což umožňuje validaci, že funkcionalita, na které je přepínač závislý je zapnutá. V~případě, že daná funkcionalita je uživatelem vypnutá, je zablokována možnost měnit závislé přepínače. Tuto situaci zachycuje obrázek \ref{fig:zavisle-prepinace}, kde je možné vidět zablokování změny přepínače \quot{Schovat v~registracích hodiny s~kolizí}, protože přepínač \quot{Náhled rozvrhu při registracích}, na kterém je druhý přepínač závislý, se nachází ve vypnutém stavu.
 
 Detekce jestli se jedná o~závislý přepínač a jestli má být zablokována možnost měnit hodnotu se vyhodnocuje pro každý přepínač pomocí kódu ve výpise \ref{code:user-preferences-disabled}.
 
@@ -286,7 +286,7 @@ Standardním postupem distribuci rozšíření do webových prohlížečů je vy
 Pro distribuci byly zvoleny 2 hlavní internetové obchody s~rozšířeními do webových prohlížečů: Google Web Store a Firefox Addons. Google Web Store je internetový obchod provozovaný společností Google ve kterém jsou k~dispozici rozšíření a témata do webového prohlížeče Google Chrome a ostatních prohlížečů založených na technologii Chromium. 
 Výhodou podpory ostatních prohlížečů je, že uživatelé alternativních prohlížečů jako je zejména prohlížeč Opera nebo Microsoft Edge si mohou rozšíření nainstalovat z~obchodu Google Web Store bez nutnosti instalace webového prohlížeče Google Chrome. Druhým zmíněným obchodem, který byl zvolen pro distribuci webového rozšíření VŠE+ je internetový obchod Firefox Addons, který je provozovaný společností Mozilla, která zároveň vyvíjí webový prohlížeč Mozilla Firefox, pro který je tento internetový obchod určen. 
 
-Mezi oběma zmíněnými internetovými obchody existuje celá řada podobností a~rozdílů. Jedním z~prvních rozdílů, se kterými přijde vývojář do styku, je nutnost koupě vývojářské licence pro obchod Google Web Store. Tato licence stojí v~době psaní této práce 5 amerických dolarů a~bez této licence není možné publikovat do obchodu Google Web Store žádný obsah. Naproti tomu publikování webových rozšíření a témat do obchodu Firefox Addons nevyžaduje licenci a~může být realizováno bezplatně.       
+Mezi oběma zmíněnými internetovými obchody existuje celá řada podobností a~rozdílů. Jedním z~prvních rozdílů, se kterými přijde vývojář do styku, je nutnost koupě vývojářské licence pro obchod Google Web Store. Tato licence stojí v~době psaní této práce 5 USD a~bez této licence není možné publikovat do obchodu Google Web Store žádný obsah. Naproti tomu publikování webových rozšíření a témat do obchodu Firefox Addons nevyžaduje licenci a~může být realizováno bezplatně.       
 
 Jednou z~výhod využití zmíněných internetových obchodů jsou metriky, které tyto obchody poskutují. Autorům rozšíření dodávají podrobné statistiky o~počtu instalací, demografii uživatelů rozšíření a rozložení nainstalovaných verzí rozšíření. Tyto statistiky je možné vidět v~panelu vývojáře a zmíněné obchody umožňují stažení zdrojových dat v~podobě csv souboru.
 
@@ -302,9 +302,9 @@ Jednou z~výhod využití zmíněných internetových obchodů jsou metriky, kte
 
 Před publikací je nutné zkompilovat zdrojový kód společně s~manifestem rozšíření a~ostatními statickými soubory z~adresáře \url{public}. Výstupem sestavení je komprimovaný zip soubor, který v~kořenovém adresáři obsahuje soubor s~manifestem rozšíření a zkompilované zdrojové kódy.
 
-V~rámci sestavování balíčku také dochází k~minimalizaci počtu sestavených souborů. K~tomu slouží takzvané bundlery, které umožňují zkombinovat více souborů do jednoho, který se označuje jako bundle. Dále tyto nástroje umí provést minifikaci výsledného kódu a optimalizaci závislostí. Pro sestavování bundle rozšíření VŠE+ byl zvolen nástroj Webpack, který je v~současnosti jedním z~nejrozšířenějších bundlerů. Jednou z~výhod tohoto bundleru je možnost extenzivní konfigurace pomocí JavaScript kódu, což umožňuje využití konstruktů programovacího jazyka JavaScript jako jsou cykly nebo kopozice funkcí při definici konfiguračních pravidel. Využití těchto syntaktických konstrukcí není monžé u~konfiguračních souborů ve formátech jako je například JSON nebo YAML.
+V~rámci sestavování balíčku také dochází k~minimalizaci počtu sestavených souborů. K~tomu slouží takzvané bundlery, které umožňují zkombinovat více souborů do jednoho, který se označuje jako bundle. Dále tyto nástroje umí provést minifikaci výsledného kódu a optimalizaci závislostí. Pro sestavování bundle rozšíření VŠE+ byl zvolen nástroj Webpack, který je v~současnosti jedním z~nejrozšířenějších bundlerů. Jednou z~výhod tohoto bundleru je možnost extenzivní konfigurace pomocí JavaScript kódu, což umožňuje využití konstruktů programovacího jazyka JavaScript jako jsou cykly nebo kompozice funkcí při definici konfiguračních pravidel. Využití těchto syntaktických konstrukcí není možné u~konfiguračních souborů ve formátech jako je například JSON nebo YAML.
 
-V~rámci projektu jsou definované 2 webpack konfigurace pro sestavování balíčků, jedna pro sestavování během vývoje a jedna pro produkční sestavení. Tyto konfigurace se nachází v~souborech \code{webpack/webpack.dev.js} a \code{webpack/webpack.prod.js}. Dále se ve složce \code{webpack} nachází ještě soubor \code{webpack.common.js}, který obsahuje konfigurační pravidla, která jsou sdílená mezi produkční a vývojářskou verzí konfigurace. Cesta ke zvolenému konfiguračnímu souboru se předává programu \code{webpack} pomocí parametru \code{-{}-config}. Pro snazší práci s~předáváním konfiguračních souborů nástroji webpack byly definovány 2 aliasy v~sekci \code{scripts} souboru \code{package.json}.
+V~rámci projektu jsou definované 2 webpack konfigurace pro sestavování balíčků, jedna pro sestavování během vývoje a jedna pro produkční sestavení. Tyto konfigurace se nachází v~souborech \code{webpack/webpack.dev.js} a \code{webpack/webpack.prod.js}. Dále se ve složce \code{webpack} nachází ještě soubor \code{webpack.common.js}, který obsahuje konfigurační pravidla, která jsou sdílená mezi produkční a vývojovou verzí konfigurace. Cesta ke zvolenému konfiguračnímu souboru se předává programu \code{webpack} pomocí parametru \code{-{}-config}. Pro snazší práci s~předáváním konfiguračních souborů nástroji webpack byly definovány 2 aliasy v~sekci \code{scripts} souboru \code{package.json}.
 
 \begin{lstlisting}[label={code:package-json-webpack-alias}, caption={Definice aliasů pro práci s~nástrojem webpack (vlastní zpracování)}]
 "scripts": {
